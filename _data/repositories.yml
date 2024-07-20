@@ -1,14 +1,14 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - TomClabault
 
-repo_description_lines_max: 2
+repo_description_lines_max: 3
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - TomClabault/HIPRT-Path-Tracer
+  - GPUOpen-LibrariesAndSDKs/HIPRT
+  - GPUOpen-LibrariesAndSDKs/Orochi
+  - TomClabault/Owl-OptiX-7
+  - TomClabault/SYCL-ray-tracing
+  - TomClabault/M2-synthese
+  - TomClabault/M2_modeling
+  - TomClabault/M2_GAM
