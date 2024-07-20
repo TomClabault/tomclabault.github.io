@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://tomclabault.github.io/sitemap.xml
+Sitemap: https://tomclabault.github.io/deletThat/sitemap.xml
