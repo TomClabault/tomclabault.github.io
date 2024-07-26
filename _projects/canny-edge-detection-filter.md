@@ -8,6 +8,7 @@ category: Free Time
 related_publications: false
 ---
 
+<hr/>
 <h2 id="features">Overview</h2>
 
 Personnal project made with CUDA in pure C that implements the Canny edge detection filter. 
@@ -28,6 +29,7 @@ Steps of the detection:
     Image source: <a href="https://en.wikipedia.org/wiki/Canny_edge_detector#">wikipedia</a>
 </div>
 
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [CUDA Canny Edge Detection](https://github.com/TomClabault/CUDAProgramming)

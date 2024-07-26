@@ -16,6 +16,7 @@ Real-time rendering engine written in C++ and OpenGL 4.3.
     </div>
 </div>
 
+<hr/>
 <h2 id="features">Features</h2>
 
 Implemented features:
@@ -56,6 +57,7 @@ Implemented features:
     Pre-integrated environment map for realtime time use with rough surfaces
 </div>
 
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [OpenGL Real-time](https://github.com/TomClabault/M2-synthese)

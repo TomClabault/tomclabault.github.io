@@ -12,6 +12,7 @@ This project implements the representation of implicit surfaces using SDFs  and 
 Signed distance functions are very powerful tools (cf. [Inigo Quilez' Shadertoy profile](https://www.shadertoy.com/user/iq)).
 This project also implements revolution surfaces, generation of a mesh from a Bezier surface description and mesh local deformations.
 
+<hr/>
 <h2 id="features">Features</h2>
 
 - Signed distance functions
@@ -39,7 +40,7 @@ This project also implements revolution surfaces, generation of a mesh from a Be
     </div>
 </div>
 
-
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [Geometric Modeling](https://github.com/TomClabault/M2_modeling)

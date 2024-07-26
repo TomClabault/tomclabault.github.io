@@ -6,8 +6,12 @@ img: assets/img/hiprt-path-tracer.jpg
 importance: 1
 category: Free Time
 related_publications: false
+images:
+  compare: true
+  slider: true
 ---
 
+<hr/>
 <h2 id="features">Overview</h2>
 
 Physically based Monte Carlo path tracer written with the [HIPRT](https://gpuopen.com/hiprt/) and [Orochi](https://gpuopen.com/orochi/) libraries.
@@ -17,6 +21,7 @@ AMD GPUs and can run on NVIDIA devices as well (although it wouldn't take advata
 
 The Orochi library allows the loading of HIP and CUDA libraries at runtime meaning that the application doesn't have to be recompiled to be used on a GPU from a different vendor (unlike HIP which would require a recompilation + linking).
 
+<hr/>
 <h2 id="features">Features</h2>
 
 - Disney BSDF (Diffuse, fake subsurface, metallic, roughness, anisotropy + anisotropy rotation, clearcoat, sheen, glass, volumetric Beer-Lambert absorption, ...) [\[Burley, 2015\]](https://blog.selfshadow.com/publications/s2015-shading-course/#course_content)
@@ -45,49 +50,31 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 	- Shader cache to avoid recompiling kernels unecessarily
 - Intel [Open Image Denoise](https://github.com/RenderKit/oidn) + Normals & Albedo AOV support
 
+<hr/>
 <h2 id="features">Gallery</h2>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hippt-mclaren.jpg" title="McLaren P1" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-mclaren.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-contemporary-bedroom.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-blender-4.1-splash.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-dragon-glass.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-dragon-indirect.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+</swiper-container>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hippt-contemporary-bedroom.jpg" title="Contemporary Bedroom" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+<hr/>
+<h2 class="mt-4" id="features">Live YouTube Showcases</h2>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hippt-blender-4.1-splash.jpg" title="Blender 4.1 Splash" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hippt-dragon-glass.jpg" title="Glass Dragon" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hippt-dragon-indirect.jpg" title="Dragon Indirect Only" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<h2 id="features">Live YouTube Showcases</h2>
-
-<h3 id="Material_Editor_Demo">Material Editor</h3>
+<h4 id="Material_Editor_Demo">Material Editor</h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LOVBwOoLVVQ?si=jrfRRjCnZuZ9mklo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<h3 id="OIDN_AOVs">OIDN AOVs Quality Comparison</h3>
+<h4 id="OIDN_AOVs">OIDN AOVs Quality Comparison</h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GnCi7K2w9go?si=MXP85c2vL1cLcVXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<h2 id="features">Related Blog Posts</h2>
+<hr/>
+<h2 class="mt-4" id="Related_blog_psots">Related Blog Posts</h2>
 
 <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ site.baseurl }}/blog/category/hiprt-path-tracer/">hiprt-path-tracer</a>
 
-<h2 id="features">Github</h2>
+<hr/>
+<h2 class="mt-4" id="Github">Github</h2>
 This project is open-source on Github: [HIPRT-Path-Tracer](https://github.com/TomClabault/HIPRT-Path-Tracer)
