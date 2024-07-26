@@ -96,7 +96,7 @@ scholar_userid: # your Google Scholar ID
 scopus_id: # your profile on Scopus
 semanticscholar_id: # your Semantic Scholar ID
 spotify_id: # your spotify id
-stackoverflow_id: tom-clabault # your stackoverflow id
+stackoverflow_id: 8145784 # your stackoverflow id
 telegram_username: # your Telegram user name
 unsplash_id: # your unsplash id
 wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
@@ -130,7 +130,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Tom Clabault's Blog # blog_name will be displayed in your blog page
-blog_description: Mostly writing about rendering techniques and their results
+blog_description: Writing about rendering techniques, experimentations and results
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
