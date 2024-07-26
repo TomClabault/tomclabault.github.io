@@ -16,7 +16,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Mater's student of computer graphics at the university of Lyon 1 Claude Bernard, France.
+Master's student in computer graphics at the university of Lyon 1 Claude Bernard, France.
 
 # Interests
 

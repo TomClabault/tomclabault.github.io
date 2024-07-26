@@ -19,6 +19,7 @@ This project has been superseded by my [HIPRT-Path-Tracer](https://tomclabault.g
     </div>
 </div>
 
+<hr/>
 <h2 id="features">Features</h2>
 
 - Direct lighting
@@ -45,6 +46,7 @@ This project has been superseded by my [HIPRT-Path-Tracer](https://tomclabault.g
     </div>
 </div>
 
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [SYCL Path Tracer](https://github.com/TomClabault/SYCL-ray-tracing)

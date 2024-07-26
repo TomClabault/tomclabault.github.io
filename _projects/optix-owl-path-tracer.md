@@ -8,6 +8,7 @@ category: Free Time
 related_publications: false
 ---
 
+<hr/>
 <h2 id="features">Overview</h2>
 
 Path tracing rendering engine (Monte Carlo integration) written with the [Owl](https://github.com/owl-project/owl) library, a wrapper around [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix) 7 which NVIDIA's general (not reserved to rendering) ray tracing framework that can make use of the ray tracing hardware accelerators of NVIDIA GeForce RTX™ GPUs.
@@ -18,6 +19,7 @@ Path tracing rendering engine (Monte Carlo integration) written with the [Owl](h
     </div>
 </div>
 
+<hr/>
 <h2 id="features">Features</h2>
 
 - Direct lighting
@@ -28,6 +30,7 @@ Path tracing rendering engine (Monte Carlo integration) written with the [Owl](h
 - ImGui Integration
 - Integration of NVIDIA's OptiX™ AI-Accelerated Denoiser
 
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [OptiX 7 Path-Tracer](https://github.com/TomClabault/Owl-OptiX-7)

@@ -10,6 +10,7 @@ related_publications: false
 
 Computational geometry project that manipulates a data structure representing meshes and that allows efficient implementations of computational geometry algorithms. 
 
+<hr/>
 <h2 id="features">Features</h2>
 
 - Insertion of a point outside or inside the convex hull of a triangulation + automatic meshing of the point into the existing triangulation
@@ -22,6 +23,7 @@ Computational geometry project that manipulates a data structure representing me
     </div>
 </div>
 
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [Computational Geometry](https://github.com/TomClabault/M2_GAM)

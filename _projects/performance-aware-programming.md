@@ -14,12 +14,14 @@ related_publications: false
     </div>
 </div>
 
+<hr/>
 <h2 id="features">Overview</h2>
 
 Being interested in hardware architecture and software performance, I am following Casey Muratori's online course "Performance Aware Programming": [https://www.computerenhance.com/](https://www.computerenhance.com/).
 
 The lectures he gives focus on giving an understanding on modern CPU architecture. The underlying goal is to provide insight on the expected performance of an application and how to profile and optimize it.
 
+<hr/>
 <h2 id="features">Topics touched</h2>
 
 - Assembly Language (instruction decoding, registers uses, performance concerns, ...)

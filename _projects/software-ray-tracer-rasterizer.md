@@ -10,6 +10,7 @@ related_publications: false
 
 CPU ray-tracer + rasterizer entirely done in C++ and Qt6 for the interface.
 
+<hr/>
 <h2 id="features">Features</h2>
 
 - Qt6 C++ Interface
@@ -73,7 +74,7 @@ CPU ray-tracer + rasterizer entirely done in C++ and Qt6 for the interface.
     Hair modeling (ad-hoc method, following a simulated falling particle)
 </div>
 
-
+<hr/>
 <h2 id="features">Github</h2>
 
 This project is open-source on Github: [Software Ray Tracer & Rasterizer](https://github.com/TomClabault/RayTracerCPP)
