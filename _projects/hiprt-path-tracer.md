@@ -64,14 +64,19 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 <hr/>
 <h2 class="mt-4" id="features">Live YouTube Showcases</h2>
 
-<h4 id="Material_Editor_Demo">Material Editor</h4>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LOVBwOoLVVQ?si=jrfRRjCnZuZ9mklo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<h4 id="OIDN_AOVs">OIDN AOVs Quality Comparison</h4>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GnCi7K2w9go?si=MXP85c2vL1cLcVXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="row">
+    <div class="col-sm-12 col-md-6 text-center">
+        <h4 id="Material_Editor_Demo">Material Editor</h4>
+		<iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/LOVBwOoLVVQ?si=jrfRRjCnZuZ9mklo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-12 col-md-6 text-center">
+        <h4 id="OIDN_AOVs_Quality">OIDN AOVs Quality</h4>
+        <iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/GnCi7K2w9go?si=MXP85c2vL1cLcVXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</div>
 
 <hr/>
-<h2 class="mt-4" id="Related_blog_psots">Related Blog Posts</h2>
+<h2 class="mt-4" id="Related_blog_posts">Related Blog Posts</h2>
 
 <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ site.baseurl }}/blog/category/hiprt-path-tracer/">hiprt-path-tracer</a>
 
