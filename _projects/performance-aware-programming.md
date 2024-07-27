@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Performance Aware Programming
-description: Casey Muratori's CPU architecture & performance online course
+description: Casey Muratori's online course on CPU architecture & performance
 img: assets/img/performance-aware-programming.png
-importance: 3
+importance: 2
 category: Free Time
 related_publications: false
 ---

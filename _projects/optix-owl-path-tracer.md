@@ -3,7 +3,7 @@ layout: page
 title: OptiX 7 - Owl Path-Tracer
 description: C++, NVIDIA OptiX7 (Owl), OpenGL Path Tracing Rendering Engine
 img: assets/img/rt_optix.jpeg
-importance: 2
+importance: 3
 category: Free Time
 related_publications: false
 ---
