@@ -410,6 +410,16 @@
             },
           },
         {%- endif -%}
+		{%- if site.reddit_name -%}
+          {
+            id: 'socials-reddit',
+            title: 'Reddit',
+            section: 'Socials',
+            handler: () => {
+              window.open("https://www.reddit.com/user/{{ site.reddit_name }}", "_blank");
+            },
+          },
+        {%- endif -%}
         {%- if site.kaggle_id -%}
           {
             id: 'socials-kaggle',
