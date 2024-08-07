@@ -2,7 +2,7 @@
 layout: page
 title: HIPRT-Path-Tracer
 description: HIPRT & Orochi Monte Carlo Path Tracer
-img: assets/img/hiprt-path-tracer.jpg
+img: assets/img/HIPRT-Path-Tracer/hiprt-path-tracer.jpg
 importance: 1
 category: Free Time
 related_publications: false
@@ -70,11 +70,13 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 <h2 id="features">Gallery</h2>
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-mclaren.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-contemporary-bedroom.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-blender-4.1-splash.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-dragon-glass.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/hippt-dragon-indirect.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/mclaren.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/contemporary-bedroom.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/blender-4.1-splash.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/dragon-glass.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/bzd-measure-seven.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/suzanne-caustics.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/dragon-indirect.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
 <hr/>
