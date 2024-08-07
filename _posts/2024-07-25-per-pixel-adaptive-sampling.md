@@ -9,6 +9,17 @@ categories: hiprt-path-tracer
 related_posts: false
 ---
 
+<!--
+	Scripts for the ImageBox
+-->
+<link rel="stylesheet" href="/assets/css/ImageBox/ImageBox.css">
+<script src="/assets/js/ImageBox/ImageBox.js"></script>
+<script src="/assets/blogs-assets/Per-Pixel-Adaptive-Sampling/ImageBox/data.js"></script>
+
+<!--
+	Scripts for the ImageBox
+-->
+
 Adaptive sampling is a technique that allows focusing the samples on pixels that need more of them. This is useful because not all parts of a scene are equally complex to render.
 
 Consider this modified cornell box for example:
@@ -117,4 +128,17 @@ This is however a poor solution since this forces all pixels of the image to be 
 
 A better way of estimating the error of the scene is presented in the "Hierarchical Adaptive Sampling" section.
 
-Nonetheless, this naive way of estimating the error of a pixel can provide very appreciable speedups in rendering time. Benchmarks to come.
+Nonetheless, this naive way of estimating the error of a pixel can provide very appreciable speedups in rendering time. 
+
+<div class="content row-md-10" id="ImageBoxContent"></div>
+<script>
+	content = document.getElementById("ImageBoxContent");
+	
+	if (data['imageBoxes'])
+		new ImageBox(content, data['imageBoxes'], "PerPixelAdaptiveSampling");
+
+
+	// if (data['stats'])
+		//new ChartBox(content, data['stats']);
+		//new TableBox(content, data['stats']);
+</script>
