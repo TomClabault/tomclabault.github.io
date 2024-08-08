@@ -220,7 +220,6 @@ var ImageBox = function(parent, config, title, imageBoxWidth, imageBoxHeight) {
 	imageBoxSettings.height = imageBoxHeight;
 
     var box = document.createElement('div');
-    box.className = "image-box col";
 
     //var h1 = document.createElement('h1');
     //h1.className = "title";
@@ -260,11 +259,18 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
 
     var insets = [];
 
+    var imageContainer;
+    if (!parent.querySelector('.image-container')) {
+        imageContainer = document.createElement('div');
+        parent.appendChild(imageContainer);
+    } else {
+        imageContainer = parent.querySelector('.image-container');
+    }
+
     for (var i = 0; i < config.length; i++) {
         // Create tab
         var selector = document.createElement('div');
         selector.className = "selector selector-primary";
-        // selector.className += (i == 0) ? " active" : "";
         
         selector.addEventListener("click", function(l, idx, event) {
             this.showContent(l, idx);
@@ -323,14 +329,15 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
 
         }
         content.style.display = 'none';
-        parent.appendChild(content);
+        content.className = "element";
+        imageContainer.appendChild(content);
         contentNode.content = content;
         nodeList.push(contentNode);
     }
 
     if (insets.length > 0) {
         var insetGroup = document.createElement('table');
-        insetGroup.className = "insets";
+        insetGroup.className = "insets d-none d-xl-block";
         insetGroup.width = imageBoxSettings.width;
         var tr = document.createElement('tr');
         tr.className = "insets";
@@ -344,7 +351,11 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
             auxDiv.appendChild(insets[i]);
             tr.appendChild(auxDiv);
         }
-        parent.appendChild(insetGroup);
+        imageContainer.appendChild(insetGroup);
+    }
+
+    if (imageContainer.firstElementChild && imageContainer.firstElementChild.tagName.toLowerCase() === 'img') {
+        imageContainer.classList.add('image-container');
     }
 }
 
