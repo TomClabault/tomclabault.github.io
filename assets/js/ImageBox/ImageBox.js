@@ -343,7 +343,7 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
 
         }
         content.style.display = 'none';
-        content.className = "element";
+        content.className = "element pixelated";
         imageContainer.appendChild(content);
         contentNode.content = content;
         nodeList.push(contentNode);
