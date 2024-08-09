@@ -6,7 +6,7 @@ description: Adaptive Sampling in a Path Tracer
 tags: path-tracing
 thumbnail: assets/img/blogs/per-pixel-adaptive-sampling/thumbnail.jpg
 categories: hiprt-path-tracer
-related_posts: true
+related_posts: false
 ---
 
 Adaptive sampling is a technique that allows focusing the samples on pixels that need more of them. This is useful because not all parts of a scene are equally complex to render.
