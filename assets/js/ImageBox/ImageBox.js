@@ -33,6 +33,22 @@ var imageBoxSettings = {
 
 window.wheelzoom = (function(){
 
+    let widthBoxCar = 0;
+
+    if (window.innerWidth >= 1600) {
+        widthBoxCar = 0.6;
+    } else if (window.innerWidth >= 1200) {
+        widthBoxCar = 0.8;
+    } else if (window.innerWidth >= 992) {
+        widthBoxCar = 0.85;
+    } else if (window.innerWidth >= 768) {
+        widthBoxCar = 0.9; 
+    } else {
+        widthBoxCar = 1;
+    }
+
+    const widthBox = window.innerWidth * widthBoxCar;
+
     var canvas = document.createElement('canvas');
 
     var main = function(img, settings){
@@ -48,11 +64,10 @@ window.wheelzoom = (function(){
             img.style.backgroundRepeat = 'no-repeat';
             canvas.width = settings.width;
             canvas.height = Math.max(settings.height, img.naturalHeight);
-            img.bgOffset = (canvas.width - img.naturalWidth)/2;
             cachedDataUrl = canvas.toDataURL();
             img.src = cachedDataUrl;
-            img.style.backgroundSize = img.bgWidth+'px '+img.bgHeight+'px';
-            img.style.backgroundPosition = img.bgOffset + img.bgPosX+'px '+img.bgPosY+'px';
+
+            img.style.backgroundPosition = img.bgPosX+'px '+img.bgPosY+'px';
         }
 
         function updateBgStyle() {
@@ -69,11 +84,11 @@ window.wheelzoom = (function(){
             }
 
             img.style.backgroundSize = img.bgWidth+'px '+img.bgHeight+'px';
-            img.style.backgroundPosition = img.bgOffset + img.bgPosX+'px '+img.bgPosY+'px';
+            img.style.backgroundPosition = img.bgPosX+'px '+img.bgPosY+'px';
         }
 
         function reset() {
-            img.bgWidth = img.imWidth;
+            img.bgWidth = widthBox
             img.bgHeight = img.imHeight;
             img.bgPosX = img.bgPosY = 0;
             updateBgStyle();
@@ -94,7 +109,7 @@ window.wheelzoom = (function(){
             // We have to calculate the target element's position relative to the document, and subtrack that from the
             // cursor's position relative to the document.
             var rect = img.getBoundingClientRect();
-            var offsetX = e.pageX - rect.left - window.pageXOffset - img.bgOffset;
+            var offsetX = e.pageX - rect.left - window.pageXOffset;
             var offsetY = e.pageY - rect.top - window.pageYOffset;
 
             // Record the offset between the bg edge and cursor:
@@ -119,7 +134,7 @@ window.wheelzoom = (function(){
             img.bgPosY = offsetY - (img.bgHeight * bgRatioY);
 
             // Prevent zooming out beyond the starting size
-            if (img.bgWidth <= img.imWidth || img.bgHeight <= img.imHeight) {
+            if (img.bgWidth <= widthBox || img.bgHeight <= (img.bgWidth/img.imWidth) * img.imHeigh) {
                 reset();
             } else {
                 updateBgStyle();
@@ -150,15 +165,15 @@ window.wheelzoom = (function(){
         function load() {
             if (img.src === cachedDataUrl) return;
 
-            img.imWidth = img.naturalWidth;
-            img.imHeight = img.naturalHeight;
+            img.imWidth = widthBox;
+            img.imHeight = (img.imWidth/img.naturalWidth) * img.naturalHeight;
 
             img.bgWidth = img.imWidth;
             img.bgHeight = img.imHeight;
             img.bgPosX = 0;
             img.bgPosY = 0;
 
-            img.style.backgroundSize     = img.bgWidth+'px '+img.bgHeight+'px';
+            img.style.backgroundSize = img.bgWidth+'px '+img.bgHeight+'px';
             img.style.backgroundPosition = img.bgPosX+' '+img.bgPosY;
 
             setSrcToBackground(img);
@@ -211,7 +226,6 @@ window.wheelzoom = (function(){
         };
     }
 }());
-
 
 var ImageBox = function(parent, config, title, imageBoxWidth, imageBoxHeight) {
     var self = this;
