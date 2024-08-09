@@ -135,7 +135,7 @@ Nonetheless, this naive way of estimating the error of a pixel can provide very 
 	content = document.getElementById("ImageBoxContent");
 	
 	if (data['imageBoxes'])
-		new ImageBox(content, data['imageBoxes'], "PerPixelAdaptiveSampling", 1280, 720 );
+		new ImageBox(content, data['imageBoxes'], "PerPixelAdaptiveSampling");
 
 
 	// if (data['stats'])

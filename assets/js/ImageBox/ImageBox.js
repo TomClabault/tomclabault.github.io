@@ -27,31 +27,52 @@
 
 var imageBoxSettings = {
     zoom: 0.1,
-	width: 1280,
-	height: 720
+    width: 1280,
+    height: 720
 };
 
-window.wheelzoom = (function(){
+window.wheelzoom = (function () {
 
-    let widthBoxCar = 0;
+    let widthRatio = true;
 
-    if (window.innerWidth >= 1600) {
-        widthBoxCar = 0.6;
-    } else if (window.innerWidth >= 1200) {
-        widthBoxCar = 0.8;
-    } else if (window.innerWidth >= 992) {
-        widthBoxCar = 0.85;
-    } else if (window.innerWidth >= 768) {
-        widthBoxCar = 0.9; 
-    } else {
-        widthBoxCar = 1;
+    const defineWidthMultiplier = () => {
+        if (window.innerWidth >= 1600) {
+            return 0.6;
+        } else if (window.innerWidth >= 1200) {
+            return 0.8;
+        } else if (window.innerWidth >= 992) {
+            return 0.85;
+        } else if (window.innerWidth >= 768) {
+            return 0.9;
+        } else {
+            return 1;
+        }
     }
 
-    const widthBox = window.innerWidth * widthBoxCar;
+    const defineHeightMultiplier = () => {
+        if (window.innerHeight >= 900) {
+            return 0.6;
+        } else if (window.innerHeight >= 800) {
+            return 0.7;
+        } else if (window.innerHeight >= 700) {
+            return 0.8;
+        } else if (window.innerHeight >= 600) {
+            return 0.9;
+        } else {
+            return 1;
+        }
+    }
+
+    const defineWidthBox = () => defineWidthMultiplier() * window.innerWidth;
+
+    const defineHeightBox = () => defineHeightMultiplier() * window.innerHeight;
+
+    const defineWithWidthRatio = (img) => widthRatio ? defineWidthBox() : img.imWidth;
+    const defineWithHeightRatio = (img) => widthRatio ? img.imHeight : defineHeightBox();
 
     var canvas = document.createElement('canvas');
 
-    var main = function(img, settings){
+    var main = function (img, settings) {
         if (!img || !img.nodeName || img.nodeName !== 'IMG') { return; }
 
         var width;
@@ -60,14 +81,18 @@ window.wheelzoom = (function(){
         var cachedDataUrl;
 
         function setSrcToBackground(img) {
-            img.style.backgroundImage = 'url("'+img.src+'")';
+            img.style.backgroundImage = 'url("' + img.src + '")';
             img.style.backgroundRepeat = 'no-repeat';
             canvas.width = settings.width;
             canvas.height = Math.max(settings.height, img.naturalHeight);
             cachedDataUrl = canvas.toDataURL();
             img.src = cachedDataUrl;
 
-            img.style.backgroundPosition = img.bgPosX+'px '+img.bgPosY+'px';
+            img.style.backgroundPosition = img.bgPosX + 'px ' + img.bgPosY + 'px';
+
+            img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+
+            widthRatio = (img.naturalWidth / img.naturalHeight) > 1.25;
         }
 
         function updateBgStyle() {
@@ -83,13 +108,13 @@ window.wheelzoom = (function(){
                 img.bgPosY = height - img.bgHeight;
             }
 
-            img.style.backgroundSize = img.bgWidth+'px '+img.bgHeight+'px';
-            img.style.backgroundPosition = img.bgPosX+'px '+img.bgPosY+'px';
+            img.style.backgroundSize = img.bgWidth + 'px ' + img.bgHeight + 'px';
+            img.style.backgroundPosition = img.bgPosX + 'px ' + img.bgPosY + 'px';
         }
 
         function reset() {
-            img.bgWidth = widthBox
-            img.bgHeight = img.imHeight;
+            img.bgWidth = defineWithWidthRatio(img);
+            img.bgHeight = defineWithHeightRatio(img);
             img.bgPosX = img.bgPosY = 0;
             updateBgStyle();
         }
@@ -115,18 +140,18 @@ window.wheelzoom = (function(){
             // Record the offset between the bg edge and cursor:
             var bgCursorX = offsetX - img.bgPosX;
             var bgCursorY = offsetY - img.bgPosY;
-            
+
             // Use the previous offset to get the percent offset between the bg edge and cursor:
-            var bgRatioX = bgCursorX/img.bgWidth;
-            var bgRatioY = bgCursorY/img.bgHeight;
+            var bgRatioX = bgCursorX / img.bgWidth;
+            var bgRatioY = bgCursorY / img.bgHeight;
 
             // Update the bg size:
             if (deltaY < 0) {
-                img.bgWidth += img.bgWidth*settings.zoom;
-                img.bgHeight += img.bgHeight*settings.zoom;
+                img.bgWidth += img.bgWidth * settings.zoom;
+                img.bgHeight += img.bgHeight * settings.zoom;
             } else {
-                img.bgWidth -= img.bgWidth*settings.zoom;
-                img.bgHeight -= img.bgHeight*settings.zoom;
+                img.bgWidth -= img.bgWidth * settings.zoom;
+                img.bgHeight -= img.bgHeight * settings.zoom;
             }
 
             // Take the percent offset and apply it to the new size:
@@ -134,7 +159,7 @@ window.wheelzoom = (function(){
             img.bgPosY = offsetY - (img.bgHeight * bgRatioY);
 
             // Prevent zooming out beyond the starting size
-            if (img.bgWidth <= widthBox || img.bgHeight <= (img.bgWidth/img.imWidth) * img.imHeigh) {
+            if (img.bgWidth <= defineWithWidthRatio(img) || img.bgHeight <= (img.bgWidth / img.imWidth) * defineWithHeightRatio(img)) {
                 reset();
             } else {
                 updateBgStyle();
@@ -165,16 +190,27 @@ window.wheelzoom = (function(){
         function load() {
             if (img.src === cachedDataUrl) return;
 
-            img.imWidth = widthBox;
-            img.imHeight = (img.imWidth/img.naturalWidth) * img.naturalHeight;
+            img.imWidth = defineWidthBox();
+            img.imHeight = (img.imWidth / img.naturalWidth) * img.naturalHeight;
 
             img.bgWidth = img.imWidth;
             img.bgHeight = img.imHeight;
             img.bgPosX = 0;
             img.bgPosY = 0;
 
-            img.style.backgroundSize = img.bgWidth+'px '+img.bgHeight+'px';
-            img.style.backgroundPosition = img.bgPosX+' '+img.bgPosY;
+            img.style.backgroundSize = img.bgWidth + 'px ' + img.bgHeight + 'px';
+            img.style.backgroundPosition = img.bgPosX + ' ' + img.bgPosY;
+
+            imageBoxSettings.width = img.naturalWidth;
+            imageBoxSettings.height = img.naturalHeight;
+            
+            if (widthRatio) {
+                console.log('test1');
+                img.style.width = defineWidthMultiplier() * 100 + '%';
+            } else {
+                console.log('test2');
+                img.style.height = defineHeightMultiplier() * 100 + 'vh';
+            }
 
             setSrcToBackground(img);
 
@@ -182,7 +218,6 @@ window.wheelzoom = (function(){
             img.addEventListener('wheel', onwheel);
             img.addEventListener('mousedown', draggable);
         }
-
         var destroy = function (originalProperties) {
             img.removeEventListener('wheelzoom.destroy', destroy);
             img.removeEventListener('wheelzoom.reset', reset);
@@ -212,11 +247,11 @@ window.wheelzoom = (function(){
 
     // Do nothing in IE8
     if (typeof window.getComputedStyle !== 'function') {
-        return function(elements) {
+        return function (elements) {
             return elements;
         };
     } else {
-        return function(elements, settings) {
+        return function (elements, settings) {
             if (elements && elements.length) {
                 Array.prototype.forEach.call(elements, main, settings);
             } else if (elements && elements.nodeName) {
@@ -225,13 +260,10 @@ window.wheelzoom = (function(){
             return elements;
         };
     }
-}());
+})();
 
-var ImageBox = function(parent, config, title, imageBoxWidth, imageBoxHeight) {
+var ImageBox = function (parent, config, title) {
     var self = this;
-
-	imageBoxSettings.width = imageBoxWidth;
-	imageBoxSettings.height = imageBoxHeight;
 
     var box = document.createElement('div');
 
@@ -258,15 +290,15 @@ var ImageBox = function(parent, config, title, imageBoxWidth, imageBoxHeight) {
     }
     this.showContent(0, 0);
     parent.appendChild(box);
-    
-    document.addEventListener("keypress", function(event) { self.keyPressHandler(event); });
+
+    document.addEventListener("keypress", function (event) { self.keyPressHandler(event); });
 }
 
-ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
+ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
 
     var self = this;
 
-    var selectorGroup = document.createElement('div'); 
+    var selectorGroup = document.createElement('div');
     selectorGroup.className = "selector-group";
 
     parent.appendChild(selectorGroup);
@@ -285,11 +317,11 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
         // Create tab
         var selector = document.createElement('div');
         selector.className = "selector selector-primary";
-        
-        selector.addEventListener("click", function(l, idx, event) {
+
+        selector.addEventListener("click", function (l, idx, event) {
             this.showContent(l, idx);
         }.bind(this, level, i));
-        
+
         // Add to tabs
         selectorGroup.appendChild(selector);
 
@@ -299,26 +331,26 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
         contentNode.selector = selector;
 
         var content;
-        if (typeof(config[i].elements) !== 'undefined') {
+        if (typeof (config[i].elements) !== 'undefined') {
             // Recurse
             content = document.createElement('div');
-            this.buildTreeNode(config[i].elements, level+1, contentNode.children, content);
+            this.buildTreeNode(config[i].elements, level + 1, contentNode.children, content);
             selector.appendChild(document.createTextNode(config[i].title));
         } else {
             // Create image
-            content = document.createElement('img'); 
+            content = document.createElement('img');
             content.className = "pixelated center-block";
             content.src = config[i].image;
-			
+
             wheelzoom(content, imageBoxSettings);
             var key = '';
             if (i < 9)
-                key = i+1 + ": ";
+                key = i + 1 + ": ";
             else if (i == 9)
                 key = "0: ";
 
             selector.appendChild(document.createTextNode(key + config[i].title));
-            this.selection.length = Math.max(this.selection.length, level+1);
+            this.selection.length = Math.max(this.selection.length, level + 1);
 
             // Create inset
             var inset = document.createElement('img');
@@ -326,18 +358,18 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
             inset.style.backgroundImage = "url('" + config[i].image + "')";
             inset.style.backgroundRepeat = "no-repeat";
             inset.style.border = "0px solid black";
-            inset.style.width  = (imageBoxSettings.width / config.length-4) + "px";
-            inset.style.height = (imageBoxSettings.width / config.length-4) + "px";
+            inset.style.width = (imageBoxSettings.width / config.length - 4) + "px";
+            inset.style.height = (imageBoxSettings.width / config.length - 4) + "px";
             inset.name = config[i].title;
             var canvas = document.createElement("canvas");
             cachedDataUrl = canvas.toDataURL();
             inset.src = cachedDataUrl;
             insets.push(inset);
 
-            content.addEventListener("mousemove", function(content, insets, event) {
+            content.addEventListener("mousemove", function (content, insets, event) {
                 this.mouseMoveHandler(event, content, insets);
             }.bind(this, content, insets));
-            content.addEventListener("wheel", function(content, insets, event) {
+            content.addEventListener("wheel", function (content, insets, event) {
                 this.mouseMoveHandler(event, content, insets);
             }.bind(this, content, insets));
 
@@ -373,7 +405,7 @@ ImageBox.prototype.buildTreeNode = function(config, level, nodeList, parent) {
     }
 }
 
-ImageBox.prototype.showContent = function(level, idx) {
+ImageBox.prototype.showContent = function (level, idx) {
     // Hide
     var bgWidth = 0;
     var bgHeight = 0;
@@ -387,12 +419,12 @@ ImageBox.prototype.showContent = function(level, idx) {
         node = node.children[this.selection[l]];
         node.selector.className = 'selector selector-primary';
         node.content.style.display = 'none';
-        if (l == this.selection.length-1) {
-            bgWidth =   node.content.bgWidth;
-            bgHeight =  node.content.bgHeight;
-            bgPosX =    node.content.bgPosX;
-            bgPosY =    node.content.bgPosY;
-            bgOffset =  node.content.bgOffset;
+        if (l == this.selection.length - 1) {
+            bgWidth = node.content.bgWidth;
+            bgHeight = node.content.bgHeight;
+            bgPosX = node.content.bgPosX;
+            bgPosY = node.content.bgPosY;
+            bgOffset = node.content.bgOffset;
         }
         l += 1;
     }
@@ -409,45 +441,45 @@ ImageBox.prototype.showContent = function(level, idx) {
         node = node.children[this.selection[l]];
         node.selector.className = 'selector selector-primary active';
         node.content.style.display = 'block';
-        if (l == this.selection.length-1) {
+        if (l == this.selection.length - 1) {
             node.content.bgWidth = bgWidth;
             node.content.bgHeight = bgHeight;
             node.content.bgPosX = bgPosX;
             node.content.bgPosY = bgPosY;
             node.content.bgOffset = bgOffset;
-            node.content.style.backgroundSize = bgWidth+'px '+bgHeight+'px';
-            node.content.style.backgroundPosition = bgOffset + bgPosX+'px '+bgPosY+'px';
+            node.content.style.backgroundSize = bgWidth + 'px ' + bgHeight + 'px';
+            node.content.style.backgroundPosition = bgOffset + bgPosX + 'px ' + bgPosY + 'px';
         }
         l += 1;
     }
 }
 
-ImageBox.prototype.keyPressHandler = function(event) {
+ImageBox.prototype.keyPressHandler = function (event) {
     if (parseInt(event.charCode) == "0".charCodeAt(0)) {
         var idx = 9;
-        this.showContent(this.selection.length-1, idx);
+        this.showContent(this.selection.length - 1, idx);
     } else {
         var idx = parseInt(event.charCode) - "1".charCodeAt(0);
-        this.showContent(this.selection.length-1, idx);
+        this.showContent(this.selection.length - 1, idx);
     }
 }
 
-ImageBox.prototype.mouseMoveHandler = function(event, image, insets) {
+ImageBox.prototype.mouseMoveHandler = function (event, image, insets) {
     var rect = image.getBoundingClientRect();
-    var xCoord = ((1.51515 * event.clientX - rect.left) - image.bgOffset - image.bgPosX)   / (image.bgWidth  / image.imWidth);
-    var yCoord = ((1.51515 * event.clientY - rect.top)  - image.bgPosY)                    / (image.bgHeight / image.imHeight);
-	
-	//console.log(xCoord);
-	//console.log(yCoord);
-	
-	var rectClient = event.target.getBoundingClientRect();
-	xCoord = event.clientX - rectClient.left;
-	yCoord = event.clientY - rectClient.top;
+    var xCoord = ((1.51515 * event.clientX - rect.left) - image.bgOffset - image.bgPosX) / (image.bgWidth / image.imWidth);
+    var yCoord = ((1.51515 * event.clientY - rect.top) - image.bgPosY) / (image.bgHeight / image.imHeight);
+
+    //console.log(xCoord);
+    //console.log(yCoord);
+
+    var rectClient = event.target.getBoundingClientRect();
+    xCoord = event.clientX - rectClient.left;
+    yCoord = event.clientY - rectClient.top;
 
     var scale = 2;
     for (var i = 0; i < insets.length; ++i) {
-        insets[i].style.backgroundSize = (image.imWidth * scale) + "px " + (image.imHeight*scale) + "px";
-        insets[i].style.backgroundPosition = (insets[i].width/2  - xCoord*scale) + "px " 
-                                           + (insets[i].height/2 - yCoord*scale) + "px";
+        insets[i].style.backgroundSize = (image.imWidth * scale) + "px " + (image.imHeight * scale) + "px";
+        insets[i].style.backgroundPosition = (insets[i].width / 2 - xCoord * scale) + "px "
+            + (insets[i].height / 2 - yCoord * scale) + "px";
     }
 }

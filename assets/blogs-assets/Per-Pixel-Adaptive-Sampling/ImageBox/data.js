@@ -19,11 +19,11 @@ var data = {
                             "title": "ReSTIR PT (Reconnection) + ReSTIR DI"
                         },
                         {
-                            "image": "/assets/blogs-assets/Per-Pixel-Adaptive-Sampling/ImageBox/square0.5x.jpg",
+                            "image": "/assets/blogs-assets/Per-Pixel-Adaptive-Sampling/ImageBox/square1x.jpg",
                             "title": "ReSTIR PT (Hybrid) + ReSTIR DI"
                         },
                         {
-                            "image": "/assets/blogs-assets/Per-Pixel-Adaptive-Sampling/ImageBox/square1x.jpg",
+                            "image": "/assets/blogs-assets/Per-Pixel-Adaptive-Sampling/ImageBox/square0.5x.jpg",
                             "title": "Reference (direct+indirect)"
                         },                        
                     ]

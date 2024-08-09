@@ -196,11 +196,7 @@ td.stats {
     margin-bottom: 50px;
 }
 
-.image-container img {
-    aspect-ratio: 16/9;
-}
-
-@media screen and (min-width: 1600px) {
+/* @media screen and (min-width: 1600px) {
     .image-container img {
         width: 60%;
     }
@@ -228,4 +224,4 @@ td.stats {
     .image-container img {
         width: 100%;
     }
-}
+} */
