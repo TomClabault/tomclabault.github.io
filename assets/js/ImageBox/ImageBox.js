@@ -37,13 +37,13 @@ window.wheelzoom = (function () {
 
     const defineWidthMultiplier = () => {
         if (window.innerWidth >= 1600) {
-            return 0.6;
+            return 0.45;
         } else if (window.innerWidth >= 1200) {
-            return 0.8;
+            return 0.6;
         } else if (window.innerWidth >= 992) {
-            return 0.85;
+            return 0.65;
         } else if (window.innerWidth >= 768) {
-            return 0.9;
+            return 0.7;
         } else {
             return 1;
         }
@@ -492,13 +492,28 @@ ImageBox.prototype.mouseMoveHandler = function (event, image, insets) {
     var xCoord = event.clientX - rectClient.left;
     var yCoord = event.clientY - rectClient.top;
 	
-	//console.log("Width: " + xCoord);
-    //console.log("Height: " + yCoord);
-
+	// Taking the zoom of the image into account
+	const parseWidthHeight = (sizeStringPx) => 
+	{ 
+		var parsedWidth = sizeStringPx.substring(0, sizeStringPx.indexOf('p'));
+		var parsedHeight = sizeStringPx.substring(sizeStringPx.indexOf(' ') + 1, sizeStringPx.lastIndexOf('p'));
+	
+		return [parseInt(parsedWidth), parseInt(parsedHeight)];
+	}
+	
+	var bgSize = parseWidthHeight(image.style.backgroundSize);
+	var bgPos = parseWidthHeight(image.style.backgroundPosition);
+	// Using the original size of the image (imWidth) to determine to current zoom level
+	var bgZoomRatio = bgSize[0] / image.imWidth;
+	
     var scale = 2;
     for (var i = 0; i < insets.length; ++i) 
 	{
         insets[i].style.backgroundSize = (image.imWidth * scale) + "px " + (image.imHeight * scale) + "px";
-        insets[i].style.backgroundPosition = (insets[i].width / 2 - xCoord * scale) + "px " + (insets[i].height / 2 - yCoord * scale) + "px";
+		
+		var insetPositionX = insets[i].width / 2 - (xCoord - bgPos[0]) * scale / bgZoomRatio;
+		var insetPositionY = insets[i].height / 2 - (yCoord - bgPos[1]) * scale / bgZoomRatio;
+		
+        insets[i].style.backgroundPosition = insetPositionX + "px " + insetPositionY + "px";
     }
 }
