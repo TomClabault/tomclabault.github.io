@@ -63,12 +63,29 @@ window.wheelzoom = (function () {
         }
     }
 
-    const defineWidthBox = () => defineWidthMultiplier() * window.innerWidth;
+    const getImageWidthRelativeToWindowSize = () => defineWidthMultiplier() * window.innerWidth;
+    const getImageHeightRelativeToWindowSize = () => defineHeightMultiplier() * window.innerHeight;
+	const getImageSizeRelativeToWindow = (img) =>
+	{
+		var imageWidth;
+		var imageHeight;
+		
+		if (widthRatio)
+		{
+			imageWidth = getImageWidthRelativeToWindowSize();
+			imageHeight = imageWidth / img.naturalWidth * img.naturalHeight;
+		}
+		else
+		{
+			imageHeight = getImageHeightRelativeToWindowSize();
+			imageWidth = imageHeight / img.naturalHeight * img.naturalWidth;
+		}
+		
+		return [imageWidth, imageHeight];
+	};
 
-    const defineHeightBox = () => defineHeightMultiplier() * window.innerHeight;
-
-    const defineWithWidthRatio = (img) => widthRatio ? defineWidthBox() : img.imWidth;
-    const defineWithHeightRatio = (img) => widthRatio ? img.imHeight : defineHeightBox();
+    const defineWithWidthRatio = (img) => widthRatio ? getImageWidthRelativeToWindowSize() : img.imWidth;
+    const defineWithHeightRatio = (img) => widthRatio ? img.imHeight : getImageHeightRelativeToWindowSize();
 
     var canvas = document.createElement('canvas');
 
@@ -80,19 +97,19 @@ window.wheelzoom = (function () {
         var previousEvent;
         var cachedDataUrl;
 
+		widthRatio = (img.naturalWidth / img.naturalHeight) > 1.25;
+
         function setSrcToBackground(img) {
-            img.style.backgroundImage = 'url("' + img.src + '")';
-            img.style.backgroundRepeat = 'no-repeat';
-            canvas.width = settings.width;
+			canvas.width = settings.width;
             canvas.height = Math.max(settings.height, img.naturalHeight);
+            
+			img.style.backgroundImage = 'url("' + img.src + '")';
+            img.style.backgroundRepeat = 'no-repeat';
+            img.style.backgroundPosition = img.bgPosX + 'px ' + img.bgPosY + 'px';
+            img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+			
             cachedDataUrl = canvas.toDataURL();
             img.src = cachedDataUrl;
-
-            img.style.backgroundPosition = img.bgPosX + 'px ' + img.bgPosY + 'px';
-
-            img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
-
-            widthRatio = (img.naturalWidth / img.naturalHeight) > 1.25;
         }
 
         function updateBgStyle() {
@@ -159,7 +176,8 @@ window.wheelzoom = (function () {
             img.bgPosY = offsetY - (img.bgHeight * bgRatioY);
 
             // Prevent zooming out beyond the starting size
-            if (img.bgWidth <= defineWithWidthRatio(img) || img.bgHeight <= (img.bgWidth / img.imWidth) * defineWithHeightRatio(img)) {
+			var imageSize = getImageSizeRelativeToWindow(img);
+            if (img.bgWidth <= imageSize[0] || img.bgHeight <= imageSize[1]) {
                 reset();
             } else {
                 updateBgStyle();
@@ -190,8 +208,12 @@ window.wheelzoom = (function () {
         function load() {
             if (img.src === cachedDataUrl) return;
 
-            img.imWidth = defineWidthBox();
-            img.imHeight = (img.imWidth / img.naturalWidth) * img.naturalHeight;
+			var imageWidthHeight = getImageSizeRelativeToWindow(img);
+
+            img.imWidth = imageWidthHeight[0];
+            img.imHeight = imageWidthHeight[1];
+
+ 			// console.log("imWidth X imHeight: " + img.imWidth+ " X " + img.imHeight);
 
             img.bgWidth = img.imWidth;
             img.bgHeight = img.imHeight;
@@ -205,10 +227,8 @@ window.wheelzoom = (function () {
             imageBoxSettings.height = img.naturalHeight;
             
             if (widthRatio) {
-                console.log('test1');
                 img.style.width = defineWidthMultiplier() * 100 + '%';
             } else {
-                console.log('test2');
                 img.style.height = defineHeightMultiplier() * 100 + 'vh';
             }
 
@@ -218,6 +238,7 @@ window.wheelzoom = (function () {
             img.addEventListener('wheel', onwheel);
             img.addEventListener('mousedown', draggable);
         }
+		
         var destroy = function (originalProperties) {
             img.removeEventListener('wheelzoom.destroy', destroy);
             img.removeEventListener('wheelzoom.reset', reset);
@@ -241,8 +262,10 @@ window.wheelzoom = (function () {
         if (img.complete) {
             load();
         }
-
-        img.addEventListener('load', load);
+		else
+		{
+			img.addEventListener('load', load);
+		}
     };
 
     // Do nothing in IE8
@@ -465,21 +488,17 @@ ImageBox.prototype.keyPressHandler = function (event) {
 }
 
 ImageBox.prototype.mouseMoveHandler = function (event, image, insets) {
-    var rect = image.getBoundingClientRect();
-    var xCoord = ((1.51515 * event.clientX - rect.left) - image.bgOffset - image.bgPosX) / (image.bgWidth / image.imWidth);
-    var yCoord = ((1.51515 * event.clientY - rect.top) - image.bgPosY) / (image.bgHeight / image.imHeight);
-
-    //console.log(xCoord);
-    //console.log(yCoord);
-
     var rectClient = event.target.getBoundingClientRect();
-    xCoord = event.clientX - rectClient.left;
-    yCoord = event.clientY - rectClient.top;
+    var xCoord = event.clientX - rectClient.left;
+    var yCoord = event.clientY - rectClient.top;
+	
+	//console.log("Width: " + xCoord);
+    //console.log("Height: " + yCoord);
 
     var scale = 2;
-    for (var i = 0; i < insets.length; ++i) {
+    for (var i = 0; i < insets.length; ++i) 
+	{
         insets[i].style.backgroundSize = (image.imWidth * scale) + "px " + (image.imHeight * scale) + "px";
-        insets[i].style.backgroundPosition = (insets[i].width / 2 - xCoord * scale) + "px "
-            + (insets[i].height / 2 - yCoord * scale) + "px";
+        insets[i].style.backgroundPosition = (insets[i].width / 2 - xCoord * scale) + "px " + (insets[i].height / 2 - yCoord * scale) + "px";
     }
 }
