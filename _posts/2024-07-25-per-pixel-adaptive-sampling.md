@@ -45,7 +45,7 @@ $$
 \sigma^2 = \frac{1}{N}\sum_{k=1}^N (x_k - \mu) ^2
 $$
 
-However, this approach would imply keeping the average of each pixel's samples (which is the framebuffer itself so that's fine) as well as the values of all samples seen so far (that's not fine). Every time we want to estimate the error of a single pixel, we would then have to loop over all the previous samples to compute their difference with the average and get our variance $\sigma^2$. Keeping track of all the samples is infeasible in terms of memory consumption (that would be 2GB of RAM/VRAM for a mere 256 samples' floating-point luminance at 1080p) and looping over all the samples seen so far is computationally way too demanding.
+However, this approach would imply keeping the average of each pixel's samples (which is the framebuffer itself so that's fine) as well as the values of all samples seen so far (that's not fine). Every time we want to estimate the error of a single pixel, we would then have to loop over all the previous samples to compute their difference with the average and get our variance $$\sigma^2$$. Keeping track of all the samples is infeasible in terms of memory consumption (that would be 2GB of RAM/VRAM for a mere 256 samples' floating-point luminance at 1080p) and looping over all the samples seen so far is computationally way too demanding.
 
 The practical solution is to evaluate the running-variance of the $$ N $$ pixel samples $$ x_k $$:
 
@@ -126,7 +126,7 @@ One solution is simply to increase the minimum number of samples that must be tr
 
 This is however a poor solution since this forces all pixels of the image to be sampled at least 100 times, even the ones that would only need 50 samples. This is a waste of computational resources.
 
-A better way of estimating the error of the scene is presented in the "Hierarchical Adaptive Sampling" section.
+A better way of estimating the error of the scene will be presented in a future blog post on "Hierarchical Adaptive Sampling".
 
 Nonetheless, this naive way of estimating the error of a pixel can provide very appreciable speedups in rendering time. 
 
