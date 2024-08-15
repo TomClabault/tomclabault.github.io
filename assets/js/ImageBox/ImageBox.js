@@ -321,6 +321,7 @@ var ImageBox = function (parent, config, width, height) {
 	console.log("width, height: " + globalSettings.width + ", " + globalSettings.height);
 
     var box = document.createElement('div');
+	box.style.width = globalSettings.width + "px";
 	
     this.tree = [];
     this.selection = [];
