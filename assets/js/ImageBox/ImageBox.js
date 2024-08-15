@@ -181,14 +181,21 @@ window.wheelzoom = (function ()
             var bgRatioX = bgCursorX / img.bgWidth;
             var bgRatioY = bgCursorY / img.bgHeight;
 
-            // Update the bg size:
-            if (deltaY < 0) {
-                img.bgWidth += img.bgWidth * settings.zoom;
-                img.bgHeight += img.bgHeight * settings.zoom;
-            } else {
-                img.bgWidth -= img.bgWidth * settings.zoom;
-                img.bgHeight -= img.bgHeight * settings.zoom;
-            }
+            // Update the bg size if we aren't zoooo zoomed in already:
+			if (deltaY < 0)
+			{
+				let notTooZoomedIn = img.bgWidth / globalSettings.width < 15 && img.bgHeight / globalSettings.height < 15;
+				if (notTooZoomedIn)
+				{
+					img.bgWidth += img.bgWidth * settings.zoom;
+					img.bgHeight += img.bgHeight * settings.zoom;
+				}
+			} 
+			else
+			{
+				img.bgWidth -= img.bgWidth * settings.zoom;
+				img.bgHeight -= img.bgHeight * settings.zoom;
+			}
 
             // Take the percent offset and apply it to the new size:
             img.bgPosX = offsetX - (img.bgWidth * bgRatioX);
