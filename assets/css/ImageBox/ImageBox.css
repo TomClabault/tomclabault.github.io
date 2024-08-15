@@ -68,7 +68,7 @@ table.insets {
 
 td.insets {
     font-family: 'Open Sans', sans-serif;
-    font-size: 21px;
+    font-size: 19px;
     color: #AAA;
     font-weight: normal;
     border: 0px solid #000;
@@ -87,7 +87,7 @@ tr.insets {
 .selector {
     padding: 8px 15px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: normal;
     line-height: 1.4;
     text-decoration: none;

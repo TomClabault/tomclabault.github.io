@@ -31,7 +31,22 @@ var globalSettings = {
     height: 720
 };
 
+var insetsBarHeight = 0;
 var imageLargerThanLong = true;
+
+function getNodeHeight(node) 
+{
+    var height, clone = node.cloneNode(true)
+    // hide the meassured (cloned) element
+    clone.style.cssText = "position:fixed; top:-9999px; opacity:0;"
+    // add the clone to the DOM 
+    document.body.appendChild(clone)
+    // meassure it
+    height = clone.clientHeight
+    // cleaup 
+    clone.parentNode.removeChild(clone)
+    return height
+}
 
 function defineWidthMultiplier()
 {
@@ -313,7 +328,6 @@ window.wheelzoom = (function ()
 var ImageBox = function (parent, config, width, height) {
     var self = this;
 
-
 	globalSettings.width = getImageSizeRelativeToWindowFromWidthHeight(width, height)[0];
 	globalSettings.height = getImageSizeRelativeToWindowFromWidthHeight(width, height)[1];
 	imageLargerThanLong = (globalSettings.width / globalSettings.height) > 1.25;
@@ -331,8 +345,10 @@ var ImageBox = function (parent, config, width, height) {
         this.selection[i] = 0;
     }
     this.showContent(0, 0);
+	
     parent.appendChild(box);
-
+	parent.style.marginBottom = globalSettings.height + insetsBarHeight + "px";
+	
     document.addEventListener("keypress", function (event) { self.keyPressHandler(event); });
 }
 
@@ -427,6 +443,7 @@ ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
         var insetGroup = document.createElement('table');
         insetGroup.className = "insets d-none d-xl-block";
         insetGroup.width = globalSettings.width;
+		
         var tr = document.createElement('tr');
         tr.className = "insets";
         insetGroup.appendChild(tr);
@@ -439,6 +456,9 @@ ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
             auxDiv.appendChild(insets[i]);
             tr.appendChild(auxDiv);
         }
+		
+		insetsBarHeight = getNodeHeight(insetGroup);
+		
         imageContainer.appendChild(insetGroup);
     }
 
