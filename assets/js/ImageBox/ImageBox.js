@@ -25,67 +25,87 @@
     and can be found at http://www.jacklmoore.com/wheelzoom.
 */
 
-var imageBoxSettings = {
+var globalSettings = {
     zoom: 0.1,
     width: 1280,
     height: 720
 };
 
-window.wheelzoom = (function () {
+var imageLargerThanLong = true;
 
-    let widthRatio = true;
-
-    const defineWidthMultiplier = () => {
-        if (window.innerWidth >= 1600) {
-            return 0.45;
-        } else if (window.innerWidth >= 1200) {
-            return 0.6;
-        } else if (window.innerWidth >= 992) {
-            return 0.65;
-        } else if (window.innerWidth >= 768) {
-            return 0.7;
-        } else {
-            return 1;
-        }
-    }
-
-    const defineHeightMultiplier = () => {
-        if (window.innerHeight >= 900) {
-            return 0.6;
-        } else if (window.innerHeight >= 800) {
-            return 0.7;
-        } else if (window.innerHeight >= 700) {
-            return 0.8;
-        } else if (window.innerHeight >= 600) {
-            return 0.9;
-        } else {
-            return 1;
-        }
-    }
-
-    const getImageWidthRelativeToWindowSize = () => defineWidthMultiplier() * window.innerWidth;
-    const getImageHeightRelativeToWindowSize = () => defineHeightMultiplier() * window.innerHeight;
-	const getImageSizeRelativeToWindow = (img) =>
+function defineWidthMultiplier()
+{
+	if (window.innerWidth >= 1600) 
 	{
-		var imageWidth;
-		var imageHeight;
-		
-		if (widthRatio)
-		{
-			imageWidth = getImageWidthRelativeToWindowSize();
-			imageHeight = imageWidth / img.naturalWidth * img.naturalHeight;
-		}
-		else
-		{
-			imageHeight = getImageHeightRelativeToWindowSize();
-			imageWidth = imageHeight / img.naturalHeight * img.naturalWidth;
-		}
-		
-		return [imageWidth, imageHeight];
-	};
+		return 0.45;
+	} 
+	else if (window.innerWidth >= 1200) 
+	{
+		return 0.6;
+	} 
+	else if (window.innerWidth >= 992) 
+	{
+		return 0.65;
+	} 
+	else if (window.innerWidth >= 768) 
+	{
+		return 0.7;
+	} 
+	else 
+	{
+		return 1;
+	}
+}
 
-    const defineWithWidthRatio = (img) => widthRatio ? getImageWidthRelativeToWindowSize() : img.imWidth;
-    const defineWithHeightRatio = (img) => widthRatio ? img.imHeight : getImageHeightRelativeToWindowSize();
+function defineHeightMultiplier()
+{
+	if (window.innerHeight >= 900) 
+	{
+		return 0.6;
+	} 
+	else if (window.innerHeight >= 800) 
+	{
+		return 0.7;
+	} 
+	else if (window.innerHeight >= 700) 
+	{
+		return 0.8;
+	} 
+	else if (window.innerHeight >= 600) 
+	{
+		return 0.9;
+	} 
+	else 
+	{
+		return 1;
+	}
+}
+
+function getImageWidthRelativeToWindowSize() { return defineWidthMultiplier() * window.innerWidth; }
+function getImageHeightRelativeToWindowSize() { return	defineHeightMultiplier() * window.innerHeight; }
+function getImageSizeRelativeToWindowFromWidthHeight(width, height)
+{
+	var imageWidth;
+	var imageHeight;
+	
+	if (imageLargerThanLong)
+	{
+		imageWidth = getImageWidthRelativeToWindowSize();
+		imageHeight = imageWidth / width * height;
+	}
+	else
+	{
+		imageHeight = getImageHeightRelativeToWindowSize();
+		imageWidth = imageHeight / height * width;
+	}
+	
+	return [imageWidth, imageHeight];
+};
+
+window.wheelzoom = (function () 
+{
+    const defineWithWidthRatio = (img) => imageLargerThanLong ? getImageWidthRelativeToWindowSize() : img.imWidth;
+    const defineWithHeightRatio = (img) => imageLargerThanLong ? img.imHeight : getImageHeightRelativeToWindowSize();
 
     var canvas = document.createElement('canvas');
 
@@ -96,8 +116,6 @@ window.wheelzoom = (function () {
         var height;
         var previousEvent;
         var cachedDataUrl;
-
-		widthRatio = (img.naturalWidth / img.naturalHeight) > 1.25;
 
         function setSrcToBackground(img) {
 			canvas.width = settings.width;
@@ -130,6 +148,7 @@ window.wheelzoom = (function () {
         }
 
         function reset() {
+			console.log("resetting");
             img.bgWidth = defineWithWidthRatio(img);
             img.bgHeight = defineWithHeightRatio(img);
             img.bgPosX = img.bgPosY = 0;
@@ -176,7 +195,9 @@ window.wheelzoom = (function () {
             img.bgPosY = offsetY - (img.bgHeight * bgRatioY);
 
             // Prevent zooming out beyond the starting size
-			var imageSize = getImageSizeRelativeToWindow(img);
+			var imageSize = getImageSizeRelativeToWindowFromWidthHeight(globalSettings.width, globalSettings.height);
+			console.log("image size: " + imageSize[0] + ", " + imageSize[1]);
+			console.log("bgWidth/height size: " + img.bgWidth + ", " + img.bgHeight);
             if (img.bgWidth <= imageSize[0] || img.bgHeight <= imageSize[1]) {
                 reset();
             } else {
@@ -208,7 +229,7 @@ window.wheelzoom = (function () {
         function load() {
             if (img.src === cachedDataUrl) return;
 
-			var imageWidthHeight = getImageSizeRelativeToWindow(img);
+			var imageWidthHeight = getImageSizeRelativeToWindowFromWidthHeight(globalSettings.width, globalSettings.height);
 
             img.imWidth = imageWidthHeight[0];
             img.imHeight = imageWidthHeight[1];
@@ -222,11 +243,8 @@ window.wheelzoom = (function () {
 
             img.style.backgroundSize = img.bgWidth + 'px ' + img.bgHeight + 'px';
             img.style.backgroundPosition = img.bgPosX + ' ' + img.bgPosY;
-
-            imageBoxSettings.width = img.naturalWidth;
-            imageBoxSettings.height = img.naturalHeight;
             
-            if (widthRatio) {
+            if (imageLargerThanLong) {
                 img.style.width = defineWidthMultiplier() * 100 + '%';
             } else {
                 img.style.height = defineHeightMultiplier() * 100 + 'vh';
@@ -285,25 +303,18 @@ window.wheelzoom = (function () {
     }
 })();
 
-var ImageBox = function (parent, config, title) {
+var ImageBox = function (parent, config, width, height) {
     var self = this;
 
+
+	globalSettings.width = getImageSizeRelativeToWindowFromWidthHeight(width, height)[0];
+	globalSettings.height = getImageSizeRelativeToWindowFromWidthHeight(width, height)[1];
+	imageLargerThanLong = (globalSettings.width / globalSettings.height) > 1.25;
+	
+	console.log("width, height: " + globalSettings.width + ", " + globalSettings.height);
+
     var box = document.createElement('div');
-
-    //var h1 = document.createElement('h1');
-    //h1.className = "title";
-    //h1.appendChild(document.createTextNode(title));
-    //back = h1.appendChild(document.createElement("a"));
-    //backText = document.createTextNode("[back]");
-    //back.appendChild(backText);
-    //back.setAttribute('href', "../");        
-    //box.appendChild(h1);
-
-    //var help = document.createElement('div');
-    //help.appendChild(document.createTextNode("Use mouse wheel to zoom in/out, click and drag to pan. Press keys [1], [2], ... to switch between individual images."));
-    //help.className = "help";
-    //box.appendChild(help);
-
+	
     this.tree = [];
     this.selection = [];
     this.buildTreeNode(config, 0, this.tree, box);
@@ -365,7 +376,7 @@ ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
             content.className = "pixelated center-block";
             content.src = config[i].image;
 
-            wheelzoom(content, imageBoxSettings);
+            wheelzoom(content, globalSettings);
             var key = '';
             if (i < 9)
                 key = i + 1 + ": ";
@@ -381,8 +392,8 @@ ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
             inset.style.backgroundImage = "url('" + config[i].image + "')";
             inset.style.backgroundRepeat = "no-repeat";
             inset.style.border = "0px solid black";
-            inset.style.width = (imageBoxSettings.width / config.length - 4) + "px";
-            inset.style.height = (imageBoxSettings.width / config.length - 4) + "px";
+            inset.style.width = (globalSettings.width / (config.length) - 4) + "px";
+            inset.style.height = (globalSettings.width / (config.length) - 4) + "px";
             inset.name = config[i].title;
             var canvas = document.createElement("canvas");
             cachedDataUrl = canvas.toDataURL();
@@ -407,7 +418,7 @@ ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
     if (insets.length > 0) {
         var insetGroup = document.createElement('table');
         insetGroup.className = "insets d-none d-xl-block";
-        insetGroup.width = imageBoxSettings.width;
+        insetGroup.width = globalSettings.width;
         var tr = document.createElement('tr');
         tr.className = "insets";
         insetGroup.appendChild(tr);
@@ -415,7 +426,7 @@ ImageBox.prototype.buildTreeNode = function (config, level, nodeList, parent) {
         for (var i = 0; i < insets.length; ++i) {
             var auxDiv = document.createElement('td');
             auxDiv.className = "insets";
-            auxDiv.style.width = (imageBoxSettings.width / insets.length) + "px";
+            auxDiv.style.width = (globalSettings.width / insets.length) + "px";
             auxDiv.appendChild(document.createTextNode(insets[i].name));
             auxDiv.appendChild(insets[i]);
             tr.appendChild(auxDiv);

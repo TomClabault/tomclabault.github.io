@@ -130,15 +130,41 @@ A better way of estimating the error of the scene will be presented in a future 
 
 Nonetheless, this naive way of estimating the error of a pixel can provide very appreciable speedups in rendering time. 
 
-<div class="content row-md-10" id="ImageBoxContent"></div>
+<div id="ImageBoxContent"></div>
 <script>
 	content = document.getElementById("ImageBoxContent");
 	
 	if (data['imageBoxes'])
-		new ImageBox(content, data['imageBoxes'], "PerPixelAdaptiveSampling");
+		new ImageBox(content, data['imageBoxes'], 1280, 720);
 
 
 	// if (data['stats'])
 		//new ChartBox(content, data['stats']);
 		//new TableBox(content, data['stats']);
 </script>
+
+<table
+  data-click-to-select="true"
+  data-height="460"
+  data-pagination="true"
+  data-search="true"
+  data-toggle="table"
+  data-url="{{ '/assets/blog-assets/Per-Pixel-Adaptive-Sampling/ImageBox/table_data.json' }}"
+>
+  <thead>
+    <tr>
+      <th data-checkbox="true"></th>
+      <th data-field="id" data-halign="left" data-align="center" data-sortable="true">ID</th>
+      <th data-field="name" data-halign="center" data-align="right" data-sortable="true">Item Name</th>
+      <th data-field="price" data-halign="right" data-align="left" data-sortable="true">Item Price</th>
+    </tr>
+  </thead>
+</table>
+
+A few notes:
+
+- Do not compare times between categories (i.e. between McLaren P1 @ 90% and McLaren P1 @ 95). Some images were rendered with the GPU limiter feature of my renderer (to avoid burning my GPU for hours) and some times are not always comparable between categories. Two images of the same category were rendered with the exact same settings so times are comparable there.
+- behhh, it's noisier, so bad!
+- talk abut denoiser
+- talk about holes, missing bright spots on the P1
+
