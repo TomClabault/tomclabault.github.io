@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distill
 title: Per-pixel Adaptive Sampling
 date: 2024-07-25 14:45:00+0200
 description: Adaptive Sampling in a Path Tracer
@@ -7,11 +7,16 @@ tags: path-tracing
 thumbnail: assets/img/blogs/per-pixel-adaptive-sampling/thumbnail.jpg
 categories: hiprt-path-tracer
 related_posts: false
+related_publications: true
+
+bibliography: blogs/per-pixel-adaptive-sampling.bib
 ---
+
 
 <!--
 	Scripts for the ImageBox
 -->
+<link rel="stylesheet" href="/assets/css/distill-width-override.css">
 <link rel="stylesheet" href="/assets/css/ImageBox/ImageBox.css">
 <script src="/assets/js/ImageBox/ImageBox.js"></script>
 <script src="/assets/blogs-assets/Per-Pixel-Adaptive-Sampling/ImageBox/data.js"></script>
@@ -25,10 +30,10 @@ Adaptive sampling is a technique that allows focusing the samples on pixels that
 Consider this modified cornell box for example:
 
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/cornell_pbr_reference.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/cornell_pbr_reference.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    Modified caustics cornell box, reference render.
+	Modified caustics cornell box, reference render.
 </div>
 
 Half of the rays of this scene don't even intersect any geometry and directly end up in the environment where the color of the environment map is computed. The variance of the radiance of these rays is very low since a given camera ray direction basically always results in the same radiance (almost) being returned.
@@ -37,7 +42,7 @@ However, the same cannot be said for the reflective caustic (the emissive light 
 
 Adaptive sampling allows us to do just that. The idea is to estimate the error of each pixel of the image, compare this estimated error with a user-defined threshold $$ T $$ and only continue to sample the pixel if the pixel's error is still larger than the threshold.
 
-A very simple error metric is that of the variance of the luminance $$ \sigma^2 $$ of the pixel. In practice, we want to estimate the variance of a pixel across the $$ N $$ samples $$ x_k $$ it has received so far. 
+A very simple error metric is that of the variance of the luminance $$ \sigma^2 $$ of the pixel. In practice, we want to estimate the variance of a pixel across the $$ N $$ samples $$x_k$$ it has received so far.
 
 The variance of $$ N $$ samples is usually computed as:
 
@@ -67,10 +72,10 @@ $$
 This 95% confidence interval gives us a range around our samples mean $$ \mu $$ and we can be 95% sure that, for the current number of samples $$ N $$ and and their variance $$ \sigma $$ that we used to compute this interval, the converged mean (true mean) of an infinite amount of samples is in that interval.
 
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    Visualization of the confidence interval <strong>I</strong> (green arrows) around <strong>µ</strong>.
+	Visualization of the confidence interval $I$ (green arrows) around $\mu$.
 </div>
 
 Judging by how $$ I $$ is computed, it is easy to see that as the number of samples $$ N $$ increases or the variance $$ \sigma^2 $$ decreases (and thus $$ \sigma $$ decreases too), $$ I $$ decreases. 
@@ -80,10 +85,10 @@ That should make sense since as we increase the number of samples, our mean $$ \
 If $$ I $$ gets smaller, this means for our $$ \mu $$ that it also gets closer to the "true" mean and that is the sign that our pixel has converged a little more.
 
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    As the number of samples increases (or as the computed variance decreases), <strong>I</strong> gets smaller, meaning that the true mean is closer to our current mean which in turn means that our pixel has converged a little more.
+	As the number of samples increases (or as the computed variance decreases), $I$ gets smaller, meaning that the true mean is closer to our current mean which in turn means that our pixel has converged a little more.
 </div>
 
 Knowing that we can interpret $$ I $$ as a measure of the convergence of our pixel, the question now becomes: 
@@ -101,10 +106,10 @@ If $$ I=0 $$, then the interval completely collapses on $$ \mu $$. Said otherwis
 In practice, having $$ I=0 $$ is infeasible. After some experimentations a $$ T $$ threshold of $$ 0.1 $$ seems to target a visually very reasonable amount of noise. Any $$ T $$ lower than that represents quite the overhead in terms of rendering times but can still provide some improvements on the perceived level of noise:
 
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/cornellThreshold.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/cornellThreshold.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    Comparison of the noise level obtained after all pixels have converged and stopped sampling with a varying <strong>T</strong> threshold.
+	Comparison of the noise level obtained after all pixels have converged and stopped sampling with a varying $T$ threshold.
 </div>
 
 Now if you look at the render with $$T=0.1$$, you'll notice that the caustic on the ceiling is awkwardly noisier than the rest of the image. There are some "holes" in the caustic (easy to see when you compare it to the $$T=0.05$$ render).
@@ -118,10 +123,10 @@ But we shouldn't! If we had sampled it maybe 50 more times, we would have probab
 One solution is simply to increase the minimum number of samples that must be traced through a pixel before evaluating its error. This way, the pixels of the image all get a chance to show their true variance and can't escape the adaptive sampling strategy! 
 
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/minimumSampleNumber.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/minimumSampleNumber.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    Impact of the minimum amount of samples to trace before starting evaluating adaptive sampling for the same <strong>T</strong> threshold.
+	Impact of the minimum amount of samples to trace before starting evaluating adaptive sampling for the same $T$ threshold.
 </div>
 
 This is however a poor solution since this forces all pixels of the image to be sampled at least 100 times, even the ones that would only need 50 samples. This is a waste of computational resources.
@@ -143,28 +148,38 @@ Nonetheless, this naive way of estimating the error of a pixel can provide very 
 		//new TableBox(content, data['stats']);
 </script>
 
-<table
-  data-click-to-select="true"
-  data-height="460"
-  data-pagination="true"
-  data-search="true"
-  data-toggle="table"
-  data-url="{{ '/assets/blog-assets/Per-Pixel-Adaptive-Sampling/ImageBox/table_data.json' }}"
->
-  <thead>
-    <tr>
-      <th data-checkbox="true"></th>
-      <th data-field="id" data-halign="left" data-align="center" data-sortable="true">ID</th>
-      <th data-field="name" data-halign="center" data-align="right" data-sortable="true">Item Name</th>
-      <th data-field="price" data-halign="right" data-align="left" data-sortable="true">Item Price</th>
-    </tr>
-  </thead>
-</table>
+|           $T = 0.1$           	|           **90%** 	|           **95%** 	|               **99%** 	|
+|:-----------------------------:	|------------------:	|------------------:	|----------------------:	|
+|           **Bistro**          	| 3626/1601 (2.26x) 	| 5104/1782 (2.86x) 	| 12068/2057 (**5.8x**) 	|
+|         **McLaren P1**        	|   178/74 (2.4x)   	|  492/198 (2.48x)  	|  3227/480 (**6.7x**)  	|
+|  **The White Room 4 bounces** 	|    98/54 (1.8x)   	|   130/58 (2.24x)  	|   270/78 (**3.46x**)  	|
+| **The White Room 16 bounces** 	|  1020/347 (2.9x)  	|  1668/656 (2.54x) 	|  2629/459 (**5.7x**)  	|
+|                               	|                   	|                   	|                       	|
+|            $T=0.3$            	|      **90%**      	|      **95%**      	|        **99%**        	|
+|           **Bistro**          	|  384/152 (2.53x)  	|  551/170 (3.24x)  	|  1124/196 (**5.73x**) 	|
+|         **McLaren P1**        	|    17/10 (1.7x)   	|   43/19 (2.26x)   	|   244/50 (**4.88x**)  	|
+|  **The White Room 4 bounces** 	|    10/6 (1.67x)   	|    15/7 (2.14x)   	|    31/8 (**3.88x**)   	|
+| **The White Room 16 bounces** 	|   69/26 (2.65x)   	|   111/31 (3.58x)  	|   268/39 (**6.87x**)  	|
+
 
 A few notes:
 
-- Do not compare times between categories (i.e. between McLaren P1 @ 90% and McLaren P1 @ 95). Some images were rendered with the GPU limiter feature of my renderer (to avoid burning my GPU for hours) and some times are not always comparable between categories. Two images of the same category were rendered with the exact same settings so times are comparable there.
-- behhh, it's noisier, so bad!
-- talk abut denoiser
-- talk about holes, missing bright spots on the P1
+- Times are in second
+- All renders with adaptive sampling were rendered with 96 minimum samples.
+- Do not compare times between categories (categories are 90%/95%/99% and $$T=0.1$$ or $$T=0.3$$). Some images were rendered
+with the GPU limiter feature of my renderer (to avoid burning my GPU for hours) and so times are not always comparable between
+categories. Two images of the same category (and of the same scene, i.e. do not compare times of the Bistro with times of the
+Mc Laren P1) were rendered with the exact same settings so times are comparable there.
 
+- You may have noticed that the images with that used the adaptive sampling are noisier than the images rendered without
+(most noticeable with $$T=0.3$$). This is because without the adaptive sampling, the renderer had no choice but to render
+<strong>every</strong> pixels of the image until 90/95/99% have reached the threshold ($$T=0.1$$ or $$T=0.3$$). This is a
+massive waste of time, especially if you intend to use a denoiser as the final step of the rendering process. As a matter
+of fact, Open Image Denoise (which is the denoiser in my renderer used at the time of writing this post) with normals and
+albedo AOVs behaves very well on an image rendered with a $$T=0.3$$ threshold and adaptive sampling on. There's almost no
+reason not to use adaptive sampling when denoising the render (except maybe for the "holes" issue explained below).
+
+- The holes are still there! Even at $$T=0.1$$, on the Mc Laren, below the right mirror :(
+Unfortunately yes. The only proper solution that I can imagine is to either increase the minimum number of samples before
+kicking off the adaptive sampling or use a hierarchical solution<d-cite key="jefferyHierarchicalAdaptiveSampling"></d-cite>,
+which I haven't explored in practice yet.
