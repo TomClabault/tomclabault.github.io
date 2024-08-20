@@ -347,7 +347,9 @@ var ImageBox = function (parent, config, width, height) {
     this.showContent(0, 0);
 	
     parent.appendChild(box);
-	parent.style.marginBottom = globalSettings.height + insetsBarHeight + "px";
+	
+	// +5 is for a little additional margin
+	parent.style.marginBottom = globalSettings.height + insetsBarHeight + 15 + "px";
 	
     document.addEventListener("keypress", function (event) { self.keyPressHandler(event); });
 }
