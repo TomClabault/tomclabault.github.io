@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: Per-pixel Adaptive Sampling
+title: Adaptive Sampling in a Path Tracer
 date: 2024-07-25 14:45:00+0200
-description: Adaptive Sampling in a Path Tracer
+description: Per-Pixel Adaptive Sampling for offline Path Tracing
 tags: path-tracing
 thumbnail: assets/img/blogs/per-pixel-adaptive-sampling/thumbnail.jpg
 categories: hiprt-path-tracer
