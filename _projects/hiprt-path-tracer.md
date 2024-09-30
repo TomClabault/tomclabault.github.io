@@ -31,15 +31,19 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 - Specular dielectrics
 
 #### Sampling
-- Light sampling (emissive geometry):
-	- Uniform light sampling for direct lighting
-	- Resampled Importance Sampling (RIS) [\[Talbot, 2005\]](https://www.researchgate.net/publication/220852928_Importance_Resampling_for_Global_Illumination)+ Weighted Reservoir Sampling (WRS) for many light sampling  + [\[M. T. Chao, 1982\]](https://www.jstor.org/stable/2336002)
+- Light sampling:
+	- Uniform light sampling for direct lighting estimation + MIS
+	- Resampled Importance Sampling (RIS) [\[Talbot et. al, 2005\]](https://www.researchgate.net/publication/220852928_Importance_Resampling_for_Global_Illumination)+ Weighted Reservoir Sampling (WRS) for many light sampling  + [\[M. T. Chao, 1982\]](https://www.jstor.org/stable/2336002)
+	- ReSTIR DI [\[Bitterli et. al, 2020\]](https://research.nvidia.com/labs/rtr/publication/bitterli2020spatiotemporal/)
+		- Supports envmap sampling
+		- Many bias correction weighting schemes for experimentations (1/M, 1/Z, MIS-like, Generalized Balance Heuristic, Pairwise MIS \[[Bitterli, 2022](https://digitalcommons.dartmouth.edu/dissertations/77/)\], Pairwise MIS with defensive formulation \[[Lin et. al, 2022](https://research.nvidia.com/publication/2022-07_generalized-resampled-importance-sampling-foundations-restir)\])
+		- Fused Spatiotemporal Reuse \[[Wyman, Panteleev, 2021](https://research.nvidia.com/publication/2021-07_rearchitecting-spatiotemporal-resampling-production)\]
+		- Light Presampling \[[Wyman, Panteleev, 2021](https://research.nvidia.com/publication/2021-07_rearchitecting-spatiotemporal-resampling-production)\]
 	- HDR Environment map + Multiple Importance Sampling using
 		- CDF-inversion binary search
 	
 - BSDF sampling:
-	- Importance sampling
-	- Multiple importance sampling
+	- MIS
 	- Smith GGX Sampling:
 		- Visible Normal Distribution Function (VNDF) [\[Heitz, 2018\]](https://jcgt.org/published/0007/04/01/)
 		- Spherical caps VNDF Sampling [\[Dupuy, Benyoub, 2023\]](https://arxiv.org/abs/2306.05044)
@@ -76,7 +80,8 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/dragon-glass.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/bzd-measure-seven.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/suzanne-caustics.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
-  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/dragon-indirect.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/pbrt-dragon-indirect-v2.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/RIS.ReSTIR.Comparison.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
 </swiper-container>
 
 <hr/>
@@ -90,6 +95,18 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
     <div class="col-sm-12 col-md-6 text-center">
         <h4 id="OIDN_AOVs_Quality">OIDN AOVs Quality</h4>
         <iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/GnCi7K2w9go?si=MXP85c2vL1cLcVXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+	<div class="col-sm-12 col-md-6 text-center">
+        <h4 id="Material_Editor_Demo">ReSTIR DI vs. RIS vs. MIS</h4>
+		<iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/R6nkhSDoJ4U?si=OCvf2hc7jxEO1fv6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+	<div class="col-sm-12 col-md-6 text-center">
+        <h4 id="Material_Editor_Demo">Homogeneous Volumetric Absorption</h4>
+		<iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/A3ZPbhAQjhE?si=2AVLkI0Vu7LJ1LDp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+	<div class="col-sm-12 col-md-6 text-center">
+        <h4 id="Material_Editor_Demo">ReSTIR DI & Dynamic Envmap</h4>
+		<iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/y2BEFJcdIWo?si=Bz_v-tFVPMQKiUG-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 </div>
 
