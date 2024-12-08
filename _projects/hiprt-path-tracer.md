@@ -36,7 +36,7 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 - Thin-film interference over dielectrics and conductors [\[Belcour, Barla, 2017\]](https://belcour.github.io/blog/research/publication/2017/05/01/brdf-thin-film.html)
 
 <div class="col-sm mt-3 mt-md-0">
-		{% include figure.liquid path="assets/img/HIPRT-Path-Tracer/LayeredBSDF.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/HIPRT-Path-Tracer/LayeredBSDF.png" class="img-fluid rounded" zoomable=true %}
 </div>
 
 #### Sampling
