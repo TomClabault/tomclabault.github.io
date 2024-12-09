@@ -20,7 +20,7 @@ Master's student in computer graphics at the university of Lyon 1 Claude Bernard
 
 # Interests
 
-- Realtime & offline 3D Rendering
+- Realtime & offline 3D Rendering (accent on ray-tracing)
 - Low-level Software Optimization
 - GPU & CPU Hardware Archictecture
 - Problem Solving
