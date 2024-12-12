@@ -34,9 +34,22 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 - Specular transmission BTDF + Beer Lambert Volumetric Absorption: [\[Burley, 2015\]](https://blog.selfshadow.com/publications/s2015-shading-course/#course_content)
 - Multiple-scattering energy compensation for conductors (double metal layer), dielectrics (transmission layer) and glossy-diffuse (specular + diffuse layer) materials [\[Turquin, 2019\]](https://blog.selfshadow.com/publications/turquin/ms_comp_final.pdf)
 - Thin-film interference over dielectrics and conductors [\[Belcour, Barla, 2017\]](https://belcour.github.io/blog/research/publication/2017/05/01/brdf-thin-film.html)
+- Thin material model
 
 <div class="col-sm mt-3 mt-md-0">
 		{% include figure.liquid path="assets/img/HIPRT-Path-Tracer/LayeredBSDF.png" class="img-fluid rounded" zoomable=true %}
+</div>
+
+<div class="col-sm mt-3 mt-md-0">
+		{% include figure.liquid path="assets/img/HIPRT-Path-Tracer/metallic-energy.png" class="img-fluid rounded" zoomable=true %}
+</div>
+
+<div class="col-sm mt-3 mt-md-0">
+		{% include figure.liquid path="assets/img/HIPRT-Path-Tracer/glass-energy.png" class="img-fluid rounded" zoomable=true %}
+</div>
+
+<div class="col-sm mt-3 mt-md-0">
+		{% include figure.liquid path="assets/img/HIPRT-Path-Tracer/specular-diffuse-energy.png" class="img-fluid rounded" zoomable=true %}
 </div>
 
 #### Sampling
