@@ -32,6 +32,7 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 - Oren-Nayar Diffuse BRDF Lobe
 - Metallic Microfacet GGX Layer + Anisotropy & Anisotropy Rotation + Double Roughness [\[Kulla & Conty, 2017\]](https://blog.selfshadow.com/publications/s2017-shading-course/imageworks/s2017_pbs_imageworks_slides_v2.pdf)
 - Specular transmission BTDF + Beer Lambert Volumetric Absorption: [\[Burley, 2015\]](https://blog.selfshadow.com/publications/s2015-shading-course/#course_content)
+- Spectral dispersion using Cauchy's equation
 - Multiple-scattering energy compensation for conductors (double metal layer), dielectrics (transmission layer) and glossy-diffuse (specular + diffuse layer) materials [\[Turquin, 2019\]](https://blog.selfshadow.com/publications/turquin/ms_comp_final.pdf)
 - Thin-film interference over dielectrics and conductors [\[Belcour, Barla, 2017\]](https://belcour.github.io/blog/research/publication/2017/05/01/brdf-thin-film.html)
 - Thin-walled model
@@ -91,13 +92,14 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 #### Other features
 - Use of the [\[ASSIMP\]](https://github.com/assimp/assimp) library to support [many](https://github.com/assimp/assimp/blob/master/doc/Fileformats.md) scene file formats.
 - Multithreaded scene parsing/texture loading/shader compiling/BVH building/envmap processing/... for faster application startup times
-- Background-asynchronous path tracing kernel pre-compilations
+- Background-asynchronous path tracing kernels pre-compilation
 - Shader cache to avoid recompiling kernels unnecessarily
 
 <hr/>
 <h2 id="features">Gallery</h2>
 
 <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+  <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/DispersionDiamonds.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/Bistro.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/mclaren.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
   <swiper-slide>{% include figure.liquid loading="eager" path="assets/img/HIPRT-Path-Tracer/contemporary-bedroom.jpg" class="img-fluid rounded z-depth-1" %}</swiper-slide>
@@ -146,6 +148,10 @@ The Orochi library allows the loading of HIP and CUDA libraries at runtime meani
 	<div class="col-sm-12 col-md-6 text-center">
         <h4 id="">Thin-film Iridescence Render [Belcour, Barla, 2017]</h4>
 		<iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/rGwkacGbd3g?si=sJA8pvamH1Wcfd5e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+	<div class="col-sm-12 col-md-6 text-center">
+        <h4 id="">Spectral dispersion in glass</h4>
+		<iframe class="center" style="aspect-ratio:16/9; width:100%;" src="https://www.youtube.com/embed/mhHZSwu7Cp0?si=0JUP2vbnt5JXt3ty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 </div>
 
