@@ -16,13 +16,13 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Master's student in computer graphics at the university of Lyon 1 Claude Bernard, France.
+R&D rendering engineer at [Huawei Ireland Research Centre](https://huaweiireland.teamtailor.com/).
 
 # Interests
 
-- Realtime & offline 3D Rendering (accent on ray-tracing)
-- Low-level Software Optimization
+- Realtime & offline 3D rendering (accent on ray-tracing)
+- Low-level software optimization
 - GPU & CPU Hardware Archictecture
-- Problem Solving
+- Problem solving
 
 Passionate about 3D rendering with an accent on ray-tracing techniques and strong interests in software optimizations / hardware architecture.
