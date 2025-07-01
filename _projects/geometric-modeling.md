@@ -2,7 +2,7 @@
 layout: page
 title: Geometric Modeling
 description: C++, QT6, Geometric Modeling (SDF, Bezier surfaces, mesh deformations)
-img: assets/img/SDF_to_the_right
+img: assets/img/SDF_to_the_right.jpg
 importance: 3
 category: Academic
 related_publications: false
