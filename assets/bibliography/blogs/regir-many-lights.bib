@@ -1,12 +1,3 @@
-@article{jefferyHierarchicalAdaptiveSampling,
-  abbr={Dyn. Hierarchical AS},
-  title={A Dynamically-Updating Hierarchical Stopping Condition for Monte Carlo Illumination},
-  author={Keith Jeffery},
-  year={2019},
-  publisher={DreamWorks Animation},
-  url={https://research.dreamworks.com/wp-content/uploads/2019/10/adaptive.pdf},
-}
-
 @inproceedings{RISTalbot,
 	author = {Talbot, Justin and Cline, David and Egbert, Parris},
 	year = {2005},
@@ -15,4 +6,71 @@
 	title = {Importance Resampling for Global Illumination},
 	journal = {Eurographics Symposium on Rendering},
 	doi = {10.2312/EGWR/EGSR05/139-146}
+}
+
+@inproceedings{Wyman2023Gentle,
+   author = {Chris Wyman and Markus Kettunen and Daqi Lin and Benedikt Bitterli 
+             and Cem Yuksel and Wojciech Jarosz and Pawel Kozlowski 
+			 and Giovanni De Francesco},
+   title = {A Gentle Introduction to ReSTIR: Path Reuse in Real-time},
+   booktitle = {ACM SIGGRAPH 2023 Courses},
+   year = {2023},
+   month = {August},
+   location = {Los Angeles, California},
+   doi = {10.1145/3587423.3595511},
+}
+
+@article{bitterli2020spatiotemporal,
+  title         = {Spatiotemporal Reservoir Resampling for Real-time Ray Tracing with Dynamic Direct Lighting},
+  author        = {Bitterli, Benedikt and Wyman, Chris and Pharr, Matt and Shirley, Peter and Lefohn, Aaron and Jarosz, Wojciech},
+  month         = {July},
+  journal       = {ACM Transactions on Graphics (SIGGRAPH)},
+  year          = {2020},
+  volume        = {39},
+  number        = {4},
+  pages         = {148:1--148:17},
+  doi           = {10.1145/3386569.3392481},
+}
+
+@Inbook{boksansky2021regir,
+author="Boksansky, Jakub
+and Jukarainen, Paula
+and Wyman, Chris",
+editor="Marrs, Adam
+and Shirley, Peter
+and Wald, Ingo",
+title="Rendering Many Lights with Grid-Based Reservoirs",
+bookTitle="Ray Tracing Gems II: Next Generation Real-Time Rendering with DXR, Vulkan, and OptiX",
+year="2021",
+publisher="Apress",
+address="Berkeley, CA",
+pages="351--365",
+abstract="Efficient rendering of scenes with many lights is a longstanding problem in graphics. Sampling a light to shade from the pool of all lights, e.g., using next event estimation, is a nontrivial task. Sampling must be computationally efficient, must select lights contributing significantly to the shaded point, and must produce low noise while introducing little or no bias. Typically, the light pool is preprocessed to create a data structure that accelerates sampling queries; this may be complex to implement, build, and update.",
+isbn="978-1-4842-7185-8",
+doi="10.1007/978-1-4842-7185-8_23",
+url="https://doi.org/10.1007/978-1-4842-7185-8_23"
+}
+
+@article{binderPSF2019,
+  author       = {Nikolaus Binder and
+                  Sascha Fricke and
+                  Alexander Keller},
+  title        = {Massively Parallel Path Space Filtering},
+  journal      = {CoRR},
+  volume       = {abs/1902.05942},
+  year         = {2019},
+  url          = {http://arxiv.org/abs/1902.05942},
+  eprinttype    = {arXiv},
+  eprint       = {1902.05942},
+  timestamp    = {Tue, 20 Aug 2019 14:59:24 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1902-05942.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{binderPSF2019,
+  author       = {Nikolaus Binder and
+                  Sascha Fricke and
+                  Alexander Keller},
+  title        = {SIGGRAPH 2019: Real-Time Ray Tracing - Special Topics and Latest Resarch- Ray-Traced Global Illumination for Games: Massively Parallel Path Space Filtering},
+  url          = {url="https://developer.nvidia.com/siggraph/2019/video/sig926"}
 }
