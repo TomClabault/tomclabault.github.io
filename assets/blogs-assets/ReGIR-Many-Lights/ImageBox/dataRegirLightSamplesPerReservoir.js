@@ -7,10 +7,6 @@ var dataRegirLightSamplesPerReservoir = {
                     "title": "The white room (137k lights)",
                     "elements": [
 						{
-                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/grid-twr.jpg",
-                            "title": "ReGIR grid"
-                        },
-                        {
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/1-twr.png",
                             "title": "L = 1"
                         },
@@ -29,6 +25,10 @@ var dataRegirLightSamplesPerReservoir = {
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/power-twr.png",
                             "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/grid-twr.jpg",
+                            "title": "ReGIR grid"
                         }
                     ]
                 },
@@ -39,10 +39,6 @@ var dataRegirLightSamplesPerReservoir = {
 				{
                     "title": "Bistro (24.7k lights)",
                     "elements": [
-						{
-                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/grid-bistro.jpg",
-                            "title": "ReGIR grid"
-                        },
                         {
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/1-bistro.png",
                             "title": "L = 1"
@@ -62,6 +58,10 @@ var dataRegirLightSamplesPerReservoir = {
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/power-bistro.png",
                             "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/grid-bistro.jpg",
+                            "title": "ReGIR grid"
                         }
                     ]
                 }
