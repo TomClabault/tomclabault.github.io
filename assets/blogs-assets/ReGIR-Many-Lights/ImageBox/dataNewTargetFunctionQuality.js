@@ -12,15 +12,15 @@ var dataNewTargetFunctionQuality = {
                         },
                         {
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-cos-twr.png",
-                            "title": "ReGIR - Le*cos(theta)1/d^2"
+                            "title": "ReGIR - +cos(theta)"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-double-cos-twr.png",
-                            "title": "ReGIR - Le*cos(theta)cos(theta_L)/d^2"
+                            "title": "ReGIR - +cos(theta_L)"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-vis-twr.png",
-                            "title": "ReGIR - Le*V*cos(theta)cos(theta_L)/d^2"
+                            "title": "ReGIR - +V"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/power-2spp-twr.png",
@@ -38,15 +38,15 @@ var dataNewTargetFunctionQuality = {
                         },
                         {
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-cos-bistro.png",
-                            "title": "ReGIR - Le*cos(theta)1/d^2"
+                            "title": "ReGIR - +cos(theta)"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-double-cos-bistro.png",
-                            "title": "ReGIR - Le*cos(theta)cos(theta_L)/d^2"
+                            "title": "ReGIR - +cos(theta_L)"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-vis-bistro.png",
-                            "title": "ReGIR - Le*V*cos(theta)cos(theta_L)/d^2"
+                            "title": "ReGIR - +V"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/power-2spp-bistro.png",
@@ -64,15 +64,15 @@ var dataNewTargetFunctionQuality = {
                         },
                         {
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-cos-bzd.png",
-                            "title": "ReGIR - Le*cos(theta)1/d^2"
+                            "title": "ReGIR - +cos(theta)"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-double-cos-bzd.png",
-                            "title": "ReGIR - Le*cos(theta)cos(theta_L)/d^2"
+                            "title": "ReGIR - +cos(theta_L)"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/regir-vis-bzd.png",
-                            "title": "ReGIR - Le*V*cos(theta)cos(theta_L)/d^2"
+                            "title": "ReGIR - +V"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/power-2spp-bzd.png",
