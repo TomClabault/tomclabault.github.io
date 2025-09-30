@@ -126,7 +126,7 @@
 
 
 @book{ReGIRBlogPostStart,
-	author = {-------------------- REGIR BLOG POSTS REFERENCES BEGINS--------------------}
+	author = {-------------------------------------------------------------------------------- REGIR BLOG POSTS REFERENCES BEGINS -------------------------------------------------------------------------------}
 }
 
 @inproceedings{RISTalbot,
@@ -182,6 +182,24 @@ doi="10.1007/978-1-4842-7185-8_23",
 url="https://doi.org/10.1007/978-1-4842-7185-8_23"
 }
 
+@inproceedings{boisse2021worldspaceRestir,
+author = {Boiss\'{e}, Guillaume},
+title = {WORLD-SPACE SPATIOTEMPORAL RESERVOIR REUSE FOR RAY-TRACED GLOBAL ILLUMINATION},
+year = {2021},
+isbn = {9781450390736},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3478512.3488613},
+doi = {10.1145/3478512.3488613},
+abstract = {Path-traced global illumination of scenes with complex lighting remains particularly challenging at real-time framerates. Reservoir-based resampling methods for light sampling allow for significant noise reduction at the cost of very few shadow rays per pixel. However, current image-space approaches to reservoir reuse do not scale to sample lighting at further bounces, as is required for efficiently evaluating indirect illumination. We present a novel approach to performing reservoir-based spatiotemporal importance resampling in world space, allowing for efficient light sampling at arbitrary vertices along the eye path. Our approach caches the reservoirs of the path vertices into the cells of a hash grid built entirely on the GPU. Such a structure allows for stochastic reuse of neighboring reservoirs across space and time for efficient spatiotemporal reservoir resampling at any point in space.},
+booktitle = {SIGGRAPH Asia 2021 Technical Communications},
+articleno = {22},
+numpages = {4},
+keywords = {reservoir resampling, ray tracing, hash grid, global illumination},
+location = {Tokyo, Japan},
+series = {SA '21}
+}
+
 @article{binderPSF2019,
   author       = {Nikolaus Binder and
                   Sascha Fricke and
@@ -198,14 +216,37 @@ url="https://doi.org/10.1007/978-1-4842-7185-8_23"
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
-@article{binderPSF2019,
+@article{binderPSF2019talk,
   author       = {Nikolaus Binder and
                   Sascha Fricke and
                   Alexander Keller},
+  year         = {2019},
   title        = {SIGGRAPH 2019: Real-Time Ray Tracing - Special Topics and Latest Resarch- Ray-Traced Global Illumination for Games: Massively Parallel Path Space Filtering},
   url          = {url="https://developer.nvidia.com/siggraph/2019/video/sig926"}
 }
 
+@misc{awad2022bettergpuhashtables,
+      title={Better GPU Hash Tables}, 
+      author={Muhammad A. Awad and Saman Ashkiani and Serban D. Porumbescu and Martín Farach-Colton and John D. Owens},
+      year={2022},
+      eprint={2108.07232},
+      archivePrefix={arXiv},
+      primaryClass={cs.DS},
+      url={https://arxiv.org/abs/2108.07232}, 
+}
+
+@article{guo2020next,
+  title = {Next Event Estimation++: Visibility Mapping for Efficient Light Transport Simulation},
+  author = {Guo, Jerry Jinfeng and Eisemann, Martin and Eisemann, Elmar},
+  journal = {Computer Graphics Forum (Proc. of Pacific Graphics {PG})},
+  doi = {10.1111/cgf.14138},
+  volume = {39},
+  number = {7},
+  pages = {205--217},
+  month = {Nov},
+  year = {2020}
+}
+
 @book{ReGIRBlogPostEnd,
-	author = {-------------------- REGIR BLOG POSTS REFERENCES ENDS --------------------}
+	author = {-------------------------------------------------------------------------------- REGIR BLOG POSTS REFERENCES ENDS -------------------------------------------------------------------------------}
 }
