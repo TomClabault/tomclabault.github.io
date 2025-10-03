@@ -67,7 +67,7 @@ $$
 This 95% confidence interval gives us a range around our samples mean $$ \mu $$ and we can be 95% sure that, for the current number of samples $$ N $$ and and their variance $$ \sigma $$ that we used to compute this interval, the converged mean (true mean) of an infinite amount of samples is in that interval.
 
 <div class="col-sm mt-3 mt-md-0">
-		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
 	Visualization of the confidence interval $I$ (green arrows) around $\mu$.
@@ -80,7 +80,7 @@ That should make sense since as we increase the number of samples, our mean $$ \
 If $$ I $$ gets smaller, this means for our $$ \mu $$ that it also gets closer to the "true" mean and that is the sign that our pixel has converged a little more.
 
 <div class="col-sm mt-3 mt-md-0">
-		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval2.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+		{% include figure.liquid path="assets/img/blogs/per-pixel-adaptive-sampling/confidenceInterval2.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
 	As the number of samples increases (or as the computed variance decreases), $I$ gets smaller, meaning that the true mean is closer to our current mean which in turn means that our pixel has converged a little more.
