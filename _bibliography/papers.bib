@@ -327,6 +327,80 @@ numpages = {14},
 keywords = {LTC, Monte Carlo integration, light sampling, linearly transformed cosines, next event estimation, optimal MIS, polygonal lights, projected solid angle sampling, real-time ray tracing, rendering, solid angle sampling, spherical polygons, spherical triangles},
 preview = {peters2021BRDFISPolygonal.png}
 }
+
+@inproceedings{histogramReSTIR2025Salaun,
+author = {Sala\"{u}n, Corentin and Balint, Martin and Belcour, Laurent and Heitz, Eric and Singh, Gurprit and Myszkowski, Karol},
+title = {Histogram Stratification for Spatio-Temporal Reservoir Sampling},
+year = {2025},
+isbn = {9798400715402},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3721238.3730723},
+doi = {10.1145/3721238.3730723},
+abstract = {Monte Carlo (MC) rendering is a widely used approach for photorealistic image synthesis, yet real-time applications often limit sampling to one path per pixel, resulting in high noise levels. To mitigate this, resampled importance sampling (RIS) has shown promise by approximating ideal sample distributions through a discrete set of candidates, avoiding the complexity of neural models or data-intensive structures. However, current RIS techniques often rely on random sampling, which fails to maximize the potential of the candidate pool. We propose a two step approach that first organizes samples candidates into local histograms and then sample the histogram using Quasi Monte Carlo and antithetic patterns. This can be done with minimal overhead and allows to reduce error in rendering to increase visual quality. Additionally, we show how it can be combined with blue noise error distribution to perceptually reduce noise artifacts. Our approach yields a higher-quality resampling estimator with enhanced noise reduction, demonstrating significant improvements in real-time rendering tasks.},
+booktitle = {Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Conference Papers},
+articleno = {83},
+numpages = {10},
+keywords = {Ray Tracing, Quasi-Monte Carlo, Global Illumination, Real-Time Rendering},
+location = {
+},
+series = {SIGGRAPH Conference Papers '25},
+preview = {histogramReSTIR2025Salaun.png}
+}
+
+@article{kondapaneni2019OptimalMIS,
+author = {Kondapaneni, Ivo and Vevoda, Petr and Grittmann, Pascal and Sk\v{r}ivan, Tom\'{a}\v{s} and Slusallek, Philipp and K\v{r}iv\'{a}nek, Jaroslav},
+title = {Optimal multiple importance sampling},
+year = {2019},
+issue_date = {August 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {38},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3306346.3323009},
+doi = {10.1145/3306346.3323009},
+abstract = {Multiple Importance Sampling (MIS) is a key technique for achieving robustness of Monte Carlo estimators in computer graphics and other fields. We derive optimal weighting functions for MIS that provably minimize the variance of an MIS estimator, given a set of sampling techniques. We show that the resulting variance reduction over the balance heuristic can be higher than predicted by the variance bounds derived by Veach and Guibas, who assumed only non-negative weights in their proof. We theoretically analyze the variance of the optimal MIS weights and show the relation to the variance of the balance heuristic. Furthermore, we establish a connection between the new weighting functions and control variates as previously applied to mixture sampling. We apply the new optimal weights to integration problems in light transport and show that they allow for new design considerations when choosing the appropriate sampling techniques for a given integration problem.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {37},
+numpages = {14},
+keywords = {combined estimators, monte carlo integration, multiple importance sampling},
+preview = {kondapaneni2019OptimalMIS.png}
+}
+
+@phdthesis{bitterli2022correlations,
+  author       = {Bitterli, Benedikt},
+  title        = {Correlations and Reuse for Fast and Accurate Physically Based Light Transport},
+  school       = {Dartmouth College},
+  year         = {2022},
+  type         = {Ph.D. Dissertation},
+  number       = {77},
+  url          = {https://digitalcommons.dartmouth.edu/dissertations/77},
+  preview 	   = {bitterli2022correlations.png}
+}
+
+@article{Lin2022GRIS,
+author = {Lin, Daqi and Kettunen, Markus and Bitterli, Benedikt and Pantaleoni, Jacopo and Yuksel, Cem and Wyman, Chris},
+title = {Generalized resampled importance sampling: foundations of ReSTIR},
+year = {2022},
+issue_date = {July 2022},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {41},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3528223.3530158},
+doi = {10.1145/3528223.3530158},
+abstract = {As scenes become ever more complex and real-time applications embrace ray tracing, path sampling algorithms that maximize quality at low sample counts become vital. Recent resampling algorithms building on Talbot et al.'s [2005] resampled importance sampling (RIS) reuse paths spatiotemporally to render surprisingly complex light transport with a few samples per pixel. These reservoir-based spatiotemporal importance resamplers (ReSTIR) and their underlying RIS theory make various assumptions, including sample independence. But sample reuse introduces correlation, so ReSTIR-style iterative reuse loses most convergence guarantees that RIS theoretically provides.We introduce generalized resampled importance sampling (GRIS) to extend the theory, allowing RIS on correlated samples, with unknown PDFs and taken from varied domains. This solidifies the theoretical foundation, allowing us to derive variance bounds and convergence conditions in ReSTIR-based samplers. It also guides practical algorithm design and enables advanced path reuse between pixels via complex shift mappings.We show a path-traced resampler (ReSTIR PT) running interactively on complex scenes, capturing many-bounce diffuse and specular lighting while shading just one path per pixel. With our new theoretical foundation, we can also modify the algorithm to guarantee convergence for offline renderers.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {75},
+numpages = {23},
+keywords = {MIS, ReSTIR, global illumination, path tracing, real-time rendering, resampled importance sampling},
+preview = {Lin2022GRIS.png}
+}
+
 @book{ReGIRBlogPostEnd,
 	author = {-------------------------------------------------------------------------------- REGIR BLOG POSTS REFERENCES ENDS -------------------------------------------------------------------------------}
 }
