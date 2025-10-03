@@ -136,7 +136,8 @@
 	pages = {139-146},
 	title = {Importance Resampling for Global Illumination},
 	journal = {Eurographics Symposium on Rendering},
-	doi = {10.2312/EGWR/EGSR05/139-146}
+	doi = {10.2312/EGWR/EGSR05/139-146},
+	preview = {RISTalbot.png}
 }
 
 @inproceedings{Wyman2023Gentle,
@@ -149,6 +150,7 @@
    month = {August},
    location = {Los Angeles, California},
    doi = {10.1145/3587423.3595511},
+   preview = {Wyman2023Gentle.png}
 }
 
 @article{bitterli2020spatiotemporal,
@@ -161,6 +163,7 @@
   number        = {4},
   pages         = {148:1--148:17},
   doi           = {10.1145/3386569.3392481},
+  preview 		= {bitterli2020spatiotemporal.jpg}
 }
 
 @Inbook{boksansky2021regir,
@@ -179,7 +182,8 @@ pages="351--365",
 abstract="Efficient rendering of scenes with many lights is a longstanding problem in graphics. Sampling a light to shade from the pool of all lights, e.g., using next event estimation, is a nontrivial task. Sampling must be computationally efficient, must select lights contributing significantly to the shaded point, and must produce low noise while introducing little or no bias. Typically, the light pool is preprocessed to create a data structure that accelerates sampling queries; this may be complex to implement, build, and update.",
 isbn="978-1-4842-7185-8",
 doi="10.1007/978-1-4842-7185-8_23",
-url="https://doi.org/10.1007/978-1-4842-7185-8_23"
+url="https://doi.org/10.1007/978-1-4842-7185-8_23",
+preview={boksansky2021regir.png}
 }
 
 @inproceedings{boisse2021worldspaceRestir,
@@ -197,7 +201,8 @@ articleno = {22},
 numpages = {4},
 keywords = {reservoir resampling, ray tracing, hash grid, global illumination},
 location = {Tokyo, Japan},
-series = {SA '21}
+series = {SA '21},
+preview={boisse2021worldspaceRestir.jpg}
 }
 
 @article{binderPSF2019,
@@ -213,7 +218,8 @@ series = {SA '21}
   eprint       = {1902.05942},
   timestamp    = {Tue, 20 Aug 2019 14:59:24 +0200},
   biburl       = {https://dblp.org/rec/journals/corr/abs-1902-05942.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+  bibsource    = {dblp computer science bibliography, https://dblp.org},
+  preview 	   = {binderPSF2019.jpg}
 }
 
 @article{binderPSF2019talk,
@@ -244,9 +250,83 @@ series = {SA '21}
   number = {7},
   pages = {205--217},
   month = {Nov},
-  year = {2020}
+  year = {2020},
+  preview 		= {guo2020next.jpg}
 }
 
+@article{heitzLTCLightShading2016,
+author = {Heitz, Eric and Dupuy, Jonathan and Hill, Stephen and Neubelt, David},
+title = {Real-time polygonal-light shading with linearly transformed cosines},
+year = {2016},
+issue_date = {July 2016},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {35},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/2897824.2925895},
+doi = {10.1145/2897824.2925895},
+abstract = {In this paper, we show that applying a linear transformation---represented by a 3 x 3 matrix---to the direction vectors of a spherical distribution yields another spherical distribution, for which we derive a closed-form expression. With this idea, we can use any spherical distribution as a base shape to create a new family of spherical distributions with parametric roughness, elliptic anisotropy and skewness. If the original distribution has an analytic expression, normalization, integration over spherical polygons, and importance sampling, then these properties are inherited by the linearly transformed distributions.By choosing a clamped cosine for the original distribution we obtain a family of distributions, which we call Linearly Transformed Cosines (LTCs), that provide a good approximation to physically based BRDFs and that can be analytically integrated over arbitrary spherical polygons. We show how to use these properties in a realtime polygonal-light shading application. Our technique is robust, fast, accurate and simple to implement.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {41},
+numpages = {8},
+keywords = {BRDF, area lighting, real-time rendering, shading},
+preview = {heitzLTCLightShading2016.png}
+}
+
+@inproceedings{heitzLTCShadows2018,
+author = {Heitz, Eric and Hill, Stephen and McGuire, Morgan},
+title = {Combining analytic direct illumination and stochastic shadows},
+year = {2018},
+isbn = {9781450357050},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3190834.3190852},
+doi = {10.1145/3190834.3190852},
+abstract = {In this paper, we propose a ratio estimator of the direct-illumination equation that allows us to combine analytic illumination techniques with stochastic raytraced shadows while maintaining correctness. Our main contribution is to show that the shadowed illumination can be split into the product of the unshadowed illumination and the illumination-weighted shadow. These terms can be computed separately - possibly using different techniques - without affecting the exactness of the final result given by their product.This formulation broadens the utility of analytic illumination techniques to raytracing applications, where they were hitherto avoided because they did not incorporate shadows. We use such methods to obtain sharp and noise-free shading in the unshadowed-illumination image and we compute the weighted-shadow image with stochastic raytracing. The advantage of restricting stochastic evaluation to the weighted-shadow image is that the final result exhibits noise only in the shadows. Furthermore, we denoise shadows separately from illumination so that even aggressive denoising only overblurs shadows, while high-frequency shading details (textures, normal maps, etc.) are preserved.},
+booktitle = {Proceedings of the ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games},
+articleno = {2},
+numpages = {11},
+keywords = {shadows, shading, direct illumination},
+location = {Montreal, Quebec, Canada},
+series = {I3D '18},
+preview = {heitzLTCShadows2018.png}
+}
+
+@article{hart2020PracticalProductSamplingWarps,
+author = {Hart, D. and Pharr, M. and Müller, T. and Lopes, Ward and McGuire, M. and Shirley, Peter},
+year = {2020},
+month = {07},
+pages = {149-158},
+title = {Practical Product Sampling by Fitting and Composing Warps},
+volume = {39},
+journal = {Computer Graphics Forum},
+doi = {10.1111/cgf.14060},
+preview = {hart2020PracticalProductSamplingWarps.png}
+}
+
+
+@article{peters2021BRDFISPolygonal,
+author = {Peters, Christoph},
+title = {BRDF importance sampling for polygonal lights},
+year = {2021},
+issue_date = {August 2021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {40},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3450626.3459672},
+doi = {10.1145/3450626.3459672},
+abstract = {With the advent of real-time ray tracing, there is an increasing interest in GPU-friendly importance sampling techniques. We present such methods to sample convex polygonal lights approximately proportional to diffuse and specular BRDFs times the cosine term. For diffuse surfaces, we sample the polygons proportional to projected solid angle. Our algorithm partitions the polygon suitably and employs inverse function sampling for each part. Inversion of the distribution function is challenging. Using algebraic geometry, we develop a special iterative procedure and an initialization scheme. Together, they achieve high accuracy in all possible situations with only two iterations. Our implementation is numerically stable and fast. For specular BRDFs, this method enables us to sample the polygon proportional to a linearly transformed cosine. We combine these diffuse and specular sampling strategies through novel variants of optimal multiple importance sampling. Our techniques render direct lighting from Lambertian polygonal lights with almost no variance outside of penumbrae and support shadows and textured emission. Additionally, we propose an algorithm for solid angle sampling of polygons. It is faster and more stable than existing methods.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {140},
+numpages = {14},
+keywords = {LTC, Monte Carlo integration, light sampling, linearly transformed cosines, next event estimation, optimal MIS, polygonal lights, projected solid angle sampling, real-time ray tracing, rendering, solid angle sampling, spherical polygons, spherical triangles},
+preview = {peters2021BRDFISPolygonal.png}
+}
 @book{ReGIRBlogPostEnd,
 	author = {-------------------------------------------------------------------------------- REGIR BLOG POSTS REFERENCES ENDS -------------------------------------------------------------------------------}
 }
