@@ -1,0 +1,44 @@
+var dataReGIRVisReuse = {
+    "imageBoxes": [    
+        {
+            "title": "RIS 1SPP, pHat without visibiilty",
+            "elements": [
+                {
+                    "title": "The white room",
+                    "elements": [
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-vis-reuse/no-vis-twr.png",
+                            "title": "No visibiilty sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-vis-reuse/neepp-twr.png",
+                            "title": "With NEE++"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-vis-reuse/vis-reuse-twr.png",
+                            "title": "Visibility reuse"
+                        }
+                    ]
+                },
+				
+				{
+                    "title": "Bistro random lights",
+                    "elements": [
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-vis-reuse/no-vis-bistro-rl.png",
+                            "title": "No visibiilty sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-vis-reuse/neepp-bistro-rl.png",
+                            "title": "With NEE++"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-vis-reuse/vis-reuse-bistro-rl.png",
+                            "title": "Visibility reuse"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

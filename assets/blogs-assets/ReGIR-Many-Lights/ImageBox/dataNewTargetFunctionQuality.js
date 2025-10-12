@@ -25,6 +25,10 @@ var dataNewTargetFunctionQuality = {
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/power-2spp-twr.png",
                             "title": "Power sampling - 2SPP"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/ats-2spp-twr.png",
+                            "title": "ATS - 2SPP"
                         }
                     ]
                 },
@@ -51,6 +55,10 @@ var dataNewTargetFunctionQuality = {
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/power-2spp-bistro.png",
                             "title": "Power sampling - 2SPP"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/ats-2spp-bistro.png",
+                            "title": "ATS - 2SPP"
                         }
                     ]
                 },
@@ -77,6 +85,10 @@ var dataNewTargetFunctionQuality = {
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/power-2spp-bzd.png",
                             "title": "Power sampling - 2SPP"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-new-target-function-quality/ats-2spp-bzd.png",
+                            "title": "ATS - 2SPP"
                         }
                     ]
                 }

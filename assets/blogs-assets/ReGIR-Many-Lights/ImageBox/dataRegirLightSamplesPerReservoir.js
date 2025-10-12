@@ -27,6 +27,10 @@ var dataRegirLightSamplesPerReservoir = {
                             "title": "Power sampling"
                         },
 						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/ats-sah-twr.png",
+                            "title": "ATS SAH"
+                        },
+						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/grid-twr.jpg",
                             "title": "ReGIR grid"
                         }
@@ -58,6 +62,10 @@ var dataRegirLightSamplesPerReservoir = {
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/power-bistro.png",
                             "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/ats-saoh-bistro.png",
+                            "title": "ATS SAOH"
                         },
 						{
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-samples-per-reservoir/grid-bistro.jpg",
