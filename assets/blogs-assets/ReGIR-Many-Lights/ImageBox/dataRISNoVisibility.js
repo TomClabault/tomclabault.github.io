@@ -4,7 +4,7 @@ var dataRISNoVisibility = {
             "title": "RIS 1SPP, pHat without visibiilty",
             "elements": [
                 {
-                    "title": "",
+                    "title": "The white room",
                     "elements": [
                         {
                             "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/ris-no-visibility/10.png",
