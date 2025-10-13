@@ -112,3 +112,385 @@
   preview={wave-mechanics.gif},
   abbr={Vision}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@book{ReGIRBlogPostStart,
+	author = {-------------------------------------------------------------------------------- REGIR BLOG POSTS REFERENCES BEGINS -------------------------------------------------------------------------------}
+}
+
+@inproceedings{RISTalbot,
+	author = {Talbot, Justin and Cline, David and Egbert, Parris},
+	year = {2005},
+	month = {01},
+	pages = {139-146},
+	title = {Importance Resampling for Global Illumination},
+	journal = {Eurographics Symposium on Rendering},
+	doi = {10.2312/EGWR/EGSR05/139-146},
+	preview = {RISTalbot.png}
+}
+
+@inproceedings{Wyman2023Gentle,
+   author = {Chris Wyman and Markus Kettunen and Daqi Lin and Benedikt Bitterli 
+             and Cem Yuksel and Wojciech Jarosz and Pawel Kozlowski 
+			 and Giovanni De Francesco},
+   title = {A Gentle Introduction to ReSTIR: Path Reuse in Real-time},
+   booktitle = {ACM SIGGRAPH 2023 Courses},
+   year = {2023},
+   month = {August},
+   location = {Los Angeles, California},
+   doi = {10.1145/3587423.3595511},
+   preview = {Wyman2023Gentle.png}
+}
+
+@article{bitterli2020spatiotemporal,
+  title         = {Spatiotemporal Reservoir Resampling for Real-time Ray Tracing with Dynamic Direct Lighting},
+  author        = {Bitterli, Benedikt and Wyman, Chris and Pharr, Matt and Shirley, Peter and Lefohn, Aaron and Jarosz, Wojciech},
+  month         = {July},
+  journal       = {ACM Transactions on Graphics (SIGGRAPH)},
+  year          = {2020},
+  volume        = {39},
+  number        = {4},
+  pages         = {148:1--148:17},
+  doi           = {10.1145/3386569.3392481},
+  preview 		= {bitterli2020spatiotemporal.jpg}
+}
+
+@Inbook{boksansky2021regir,
+author="Boksansky, Jakub
+and Jukarainen, Paula
+and Wyman, Chris",
+editor="Marrs, Adam
+and Shirley, Peter
+and Wald, Ingo",
+title="Rendering Many Lights with Grid-Based Reservoirs",
+bookTitle="Ray Tracing Gems II: Next Generation Real-Time Rendering with DXR, Vulkan, and OptiX",
+year="2021",
+publisher="Apress",
+address="Berkeley, CA",
+pages="351--365",
+abstract="Efficient rendering of scenes with many lights is a longstanding problem in graphics. Sampling a light to shade from the pool of all lights, e.g., using next event estimation, is a nontrivial task. Sampling must be computationally efficient, must select lights contributing significantly to the shaded point, and must produce low noise while introducing little or no bias. Typically, the light pool is preprocessed to create a data structure that accelerates sampling queries; this may be complex to implement, build, and update.",
+isbn="978-1-4842-7185-8",
+doi="10.1007/978-1-4842-7185-8_23",
+url="https://doi.org/10.1007/978-1-4842-7185-8_23",
+preview={boksansky2021regir.png}
+}
+
+@inproceedings{boisse2021worldspaceRestir,
+author = {Boiss\'{e}, Guillaume},
+title = {WORLD-SPACE SPATIOTEMPORAL RESERVOIR REUSE FOR RAY-TRACED GLOBAL ILLUMINATION},
+year = {2021},
+isbn = {9781450390736},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3478512.3488613},
+doi = {10.1145/3478512.3488613},
+abstract = {Path-traced global illumination of scenes with complex lighting remains particularly challenging at real-time framerates. Reservoir-based resampling methods for light sampling allow for significant noise reduction at the cost of very few shadow rays per pixel. However, current image-space approaches to reservoir reuse do not scale to sample lighting at further bounces, as is required for efficiently evaluating indirect illumination. We present a novel approach to performing reservoir-based spatiotemporal importance resampling in world space, allowing for efficient light sampling at arbitrary vertices along the eye path. Our approach caches the reservoirs of the path vertices into the cells of a hash grid built entirely on the GPU. Such a structure allows for stochastic reuse of neighboring reservoirs across space and time for efficient spatiotemporal reservoir resampling at any point in space.},
+booktitle = {SIGGRAPH Asia 2021 Technical Communications},
+articleno = {22},
+numpages = {4},
+keywords = {reservoir resampling, ray tracing, hash grid, global illumination},
+location = {Tokyo, Japan},
+series = {SA '21},
+preview={boisse2021worldspaceRestir.jpg}
+}
+
+@article{binderPSF2019,
+  author       = {Nikolaus Binder and
+                  Sascha Fricke and
+                  Alexander Keller},
+  title        = {Massively Parallel Path Space Filtering},
+  journal      = {CoRR},
+  volume       = {abs/1902.05942},
+  year         = {2019},
+  url          = {http://arxiv.org/abs/1902.05942},
+  eprinttype    = {arXiv},
+  eprint       = {1902.05942},
+  timestamp    = {Tue, 20 Aug 2019 14:59:24 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1902-05942.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org},
+  preview 	   = {binderPSF2019.jpg}
+}
+
+@article{binderPSF2019talk,
+  author       = {Nikolaus Binder and
+                  Sascha Fricke and
+                  Alexander Keller},
+  year         = {2019},
+  title        = {SIGGRAPH 2019: Real-Time Ray Tracing - Special Topics and Latest Resarch- Ray-Traced Global Illumination for Games: Massively Parallel Path Space Filtering},
+  url          = {url="https://developer.nvidia.com/siggraph/2019/video/sig926"}
+}
+
+@misc{awad2022bettergpuhashtables,
+      title={Better GPU Hash Tables}, 
+      author={Muhammad A. Awad and Saman Ashkiani and Serban D. Porumbescu and Martín Farach-Colton and John D. Owens},
+      year={2022},
+      eprint={2108.07232},
+      archivePrefix={arXiv},
+      primaryClass={cs.DS},
+      url={https://arxiv.org/abs/2108.07232}, 
+	  preview={awad2022bettergpuhashtables.png}
+}
+
+@article{guo2020next,
+  title = {Next Event Estimation++: Visibility Mapping for Efficient Light Transport Simulation},
+  author = {Guo, Jerry Jinfeng and Eisemann, Martin and Eisemann, Elmar},
+  journal = {Computer Graphics Forum (Proc. of Pacific Graphics {PG})},
+  doi = {10.1111/cgf.14138},
+  volume = {39},
+  number = {7},
+  pages = {205--217},
+  month = {Nov},
+  year = {2020},
+  preview 		= {guo2020next.jpg}
+}
+
+@article{heitzLTCLightShading2016,
+author = {Heitz, Eric and Dupuy, Jonathan and Hill, Stephen and Neubelt, David},
+title = {Real-time polygonal-light shading with linearly transformed cosines},
+year = {2016},
+issue_date = {July 2016},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {35},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/2897824.2925895},
+doi = {10.1145/2897824.2925895},
+abstract = {In this paper, we show that applying a linear transformation---represented by a 3 x 3 matrix---to the direction vectors of a spherical distribution yields another spherical distribution, for which we derive a closed-form expression. With this idea, we can use any spherical distribution as a base shape to create a new family of spherical distributions with parametric roughness, elliptic anisotropy and skewness. If the original distribution has an analytic expression, normalization, integration over spherical polygons, and importance sampling, then these properties are inherited by the linearly transformed distributions.By choosing a clamped cosine for the original distribution we obtain a family of distributions, which we call Linearly Transformed Cosines (LTCs), that provide a good approximation to physically based BRDFs and that can be analytically integrated over arbitrary spherical polygons. We show how to use these properties in a realtime polygonal-light shading application. Our technique is robust, fast, accurate and simple to implement.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {41},
+numpages = {8},
+keywords = {BRDF, area lighting, real-time rendering, shading},
+preview = {heitzLTCLightShading2016.png}
+}
+
+@inproceedings{heitzLTCShadows2018,
+author = {Heitz, Eric and Hill, Stephen and McGuire, Morgan},
+title = {Combining analytic direct illumination and stochastic shadows},
+year = {2018},
+isbn = {9781450357050},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3190834.3190852},
+doi = {10.1145/3190834.3190852},
+abstract = {In this paper, we propose a ratio estimator of the direct-illumination equation that allows us to combine analytic illumination techniques with stochastic raytraced shadows while maintaining correctness. Our main contribution is to show that the shadowed illumination can be split into the product of the unshadowed illumination and the illumination-weighted shadow. These terms can be computed separately - possibly using different techniques - without affecting the exactness of the final result given by their product.This formulation broadens the utility of analytic illumination techniques to raytracing applications, where they were hitherto avoided because they did not incorporate shadows. We use such methods to obtain sharp and noise-free shading in the unshadowed-illumination image and we compute the weighted-shadow image with stochastic raytracing. The advantage of restricting stochastic evaluation to the weighted-shadow image is that the final result exhibits noise only in the shadows. Furthermore, we denoise shadows separately from illumination so that even aggressive denoising only overblurs shadows, while high-frequency shading details (textures, normal maps, etc.) are preserved.},
+booktitle = {Proceedings of the ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games},
+articleno = {2},
+numpages = {11},
+keywords = {shadows, shading, direct illumination},
+location = {Montreal, Quebec, Canada},
+series = {I3D '18},
+preview = {heitzLTCShadows2018.png}
+}
+
+@article{hart2020PracticalProductSamplingWarps,
+author = {Hart, D. and Pharr, M. and Müller, T. and Lopes, Ward and McGuire, M. and Shirley, Peter},
+year = {2020},
+month = {07},
+pages = {149-158},
+title = {Practical Product Sampling by Fitting and Composing Warps},
+volume = {39},
+journal = {Computer Graphics Forum},
+doi = {10.1111/cgf.14060},
+preview = {hart2020PracticalProductSamplingWarps.png}
+}
+
+
+@article{peters2021BRDFISPolygonal,
+author = {Peters, Christoph},
+title = {BRDF importance sampling for polygonal lights},
+year = {2021},
+issue_date = {August 2021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {40},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3450626.3459672},
+doi = {10.1145/3450626.3459672},
+abstract = {With the advent of real-time ray tracing, there is an increasing interest in GPU-friendly importance sampling techniques. We present such methods to sample convex polygonal lights approximately proportional to diffuse and specular BRDFs times the cosine term. For diffuse surfaces, we sample the polygons proportional to projected solid angle. Our algorithm partitions the polygon suitably and employs inverse function sampling for each part. Inversion of the distribution function is challenging. Using algebraic geometry, we develop a special iterative procedure and an initialization scheme. Together, they achieve high accuracy in all possible situations with only two iterations. Our implementation is numerically stable and fast. For specular BRDFs, this method enables us to sample the polygon proportional to a linearly transformed cosine. We combine these diffuse and specular sampling strategies through novel variants of optimal multiple importance sampling. Our techniques render direct lighting from Lambertian polygonal lights with almost no variance outside of penumbrae and support shadows and textured emission. Additionally, we propose an algorithm for solid angle sampling of polygons. It is faster and more stable than existing methods.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {140},
+numpages = {14},
+keywords = {LTC, Monte Carlo integration, light sampling, linearly transformed cosines, next event estimation, optimal MIS, polygonal lights, projected solid angle sampling, real-time ray tracing, rendering, solid angle sampling, spherical polygons, spherical triangles},
+preview = {peters2021BRDFISPolygonal.png}
+}
+
+@inproceedings{histogramReSTIR2025Salaun,
+author = {Sala\"{u}n, Corentin and Balint, Martin and Belcour, Laurent and Heitz, Eric and Singh, Gurprit and Myszkowski, Karol},
+title = {Histogram Stratification for Spatio-Temporal Reservoir Sampling},
+year = {2025},
+isbn = {9798400715402},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3721238.3730723},
+doi = {10.1145/3721238.3730723},
+abstract = {Monte Carlo (MC) rendering is a widely used approach for photorealistic image synthesis, yet real-time applications often limit sampling to one path per pixel, resulting in high noise levels. To mitigate this, resampled importance sampling (RIS) has shown promise by approximating ideal sample distributions through a discrete set of candidates, avoiding the complexity of neural models or data-intensive structures. However, current RIS techniques often rely on random sampling, which fails to maximize the potential of the candidate pool. We propose a two step approach that first organizes samples candidates into local histograms and then sample the histogram using Quasi Monte Carlo and antithetic patterns. This can be done with minimal overhead and allows to reduce error in rendering to increase visual quality. Additionally, we show how it can be combined with blue noise error distribution to perceptually reduce noise artifacts. Our approach yields a higher-quality resampling estimator with enhanced noise reduction, demonstrating significant improvements in real-time rendering tasks.},
+booktitle = {Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Conference Papers},
+articleno = {83},
+numpages = {10},
+keywords = {Ray Tracing, Quasi-Monte Carlo, Global Illumination, Real-Time Rendering},
+location = {
+},
+series = {SIGGRAPH Conference Papers '25},
+preview = {histogramReSTIR2025Salaun.png}
+}
+
+@article{kondapaneni2019OptimalMIS,
+author = {Kondapaneni, Ivo and Vevoda, Petr and Grittmann, Pascal and Sk\v{r}ivan, Tom\'{a}\v{s} and Slusallek, Philipp and K\v{r}iv\'{a}nek, Jaroslav},
+title = {Optimal multiple importance sampling},
+year = {2019},
+issue_date = {August 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {38},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3306346.3323009},
+doi = {10.1145/3306346.3323009},
+abstract = {Multiple Importance Sampling (MIS) is a key technique for achieving robustness of Monte Carlo estimators in computer graphics and other fields. We derive optimal weighting functions for MIS that provably minimize the variance of an MIS estimator, given a set of sampling techniques. We show that the resulting variance reduction over the balance heuristic can be higher than predicted by the variance bounds derived by Veach and Guibas, who assumed only non-negative weights in their proof. We theoretically analyze the variance of the optimal MIS weights and show the relation to the variance of the balance heuristic. Furthermore, we establish a connection between the new weighting functions and control variates as previously applied to mixture sampling. We apply the new optimal weights to integration problems in light transport and show that they allow for new design considerations when choosing the appropriate sampling techniques for a given integration problem.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {37},
+numpages = {14},
+keywords = {combined estimators, monte carlo integration, multiple importance sampling},
+preview = {kondapaneni2019OptimalMIS.png}
+}
+
+@phdthesis{bitterli2022correlations,
+  author       = {Bitterli, Benedikt},
+  title        = {Correlations and Reuse for Fast and Accurate Physically Based Light Transport},
+  school       = {Dartmouth College},
+  year         = {2022},
+  type         = {Ph.D. Dissertation},
+  number       = {77},
+  url          = {https://digitalcommons.dartmouth.edu/dissertations/77},
+  preview 	   = {bitterli2022correlations.png}
+}
+
+@article{Lin2022GRIS,
+author = {Lin, Daqi and Kettunen, Markus and Bitterli, Benedikt and Pantaleoni, Jacopo and Yuksel, Cem and Wyman, Chris},
+title = {Generalized resampled importance sampling: foundations of ReSTIR},
+year = {2022},
+issue_date = {July 2022},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {41},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3528223.3530158},
+doi = {10.1145/3528223.3530158},
+abstract = {As scenes become ever more complex and real-time applications embrace ray tracing, path sampling algorithms that maximize quality at low sample counts become vital. Recent resampling algorithms building on Talbot et al.'s [2005] resampled importance sampling (RIS) reuse paths spatiotemporally to render surprisingly complex light transport with a few samples per pixel. These reservoir-based spatiotemporal importance resamplers (ReSTIR) and their underlying RIS theory make various assumptions, including sample independence. But sample reuse introduces correlation, so ReSTIR-style iterative reuse loses most convergence guarantees that RIS theoretically provides.We introduce generalized resampled importance sampling (GRIS) to extend the theory, allowing RIS on correlated samples, with unknown PDFs and taken from varied domains. This solidifies the theoretical foundation, allowing us to derive variance bounds and convergence conditions in ReSTIR-based samplers. It also guides practical algorithm design and enables advanced path reuse between pixels via complex shift mappings.We show a path-traced resampler (ReSTIR PT) running interactively on complex scenes, capturing many-bounce diffuse and specular lighting while shading just one path per pixel. With our new theoretical foundation, we can also modify the algorithm to guarantee convergence for offline renderers.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {75},
+numpages = {23},
+keywords = {MIS, ReSTIR, global illumination, path tracing, real-time rendering, resampled importance sampling},
+preview = {Lin2022GRIS.png}
+}
+
+
+@article{conty2018ATS,
+author = {Conty Estevez, Alejandro and Kulla, Christopher},
+title = {Importance Sampling of Many Lights with Adaptive Tree Splitting},
+year = {2018},
+issue_date = {August 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {1},
+number = {2},
+url = {https://doi.org/10.1145/3233305},
+doi = {10.1145/3233305},
+abstract = {We present a technique to importance sample large collections of lights (including mesh lights as collections of small emitters) in the context of Monte-Carlo path tracing. A bounding volume hierarchy over all emitters is traversed at each shading point using a single random number in a way that importance samples their predicted contribution. The tree aggregates energy, spatial and orientation information from the emitters to enable accurate prediction of the effect of a cluster of lights on any given shading point. We further improve the performance of the algorithm by forcing splitting until the importance of a cluster is sufficiently representative of its contents.},
+journal = {Proc. ACM Comput. Graph. Interact. Tech.},
+month = aug,
+articleno = {25},
+numpages = {17},
+keywords = {illumination, many lights, ray tracing},
+preview = {conty2018ATS.jpg}
+}
+
+@article{sawhney2022decorrelating,
+  eprint        = {2211.00166},
+  title         = {Decorrelating ReSTIR Samplers via MCMC Mutations},
+  author        = {Sawhney, Rohan and Lin, Daqi and Kettunen, Markus and Bitterli, Benedikt and Ramamoorthi, Ravi and Wyman, Chris and Pharr, Matt},
+  journal       = {ACM Transactions on Graphics (ToG)},
+  year          = {2024},
+  volume        = {43},
+  number        = {1},
+  month         = {January},
+  articleno     = {10},
+  numpages      = {15},
+  doi           = {10.1145/3629166},
+  preview 		= {sawhney2022decorrelating.jpg}
+}
+
+@inproceedings{li24cachepoints,
+	author    = {Li, Yining Karl and Zhu, Charlotte and Nichols, Gregory and Kutz, Peter and Huang, Wei-Feng Wayne and 
+		     Adler, David and Burley, Brent and Teece, Daniel},
+	title     = {Cache Points For Production-Scale Occlusion-Aware Many-Lights Sampling And Volumetric},
+	booktitle = {DigiPro '24: Proceedings of the Digital Production Symposium 2024},
+	month     = jul,
+	year      = {2024},
+	articleno = {6},
+	doi       = {10.1145/3665320.3670993},
+	keywords  = {path tracing, global illumination, light selection, importance sampling, volume rendering},
+	preview 	= {li24cachepoints.jpg}
+}
+
+@article{wu2024cacheplacement,
+	author = {Wu, Yu-Ting and Shen, I-Chao},
+	title = {Improving cache placement for efficient cache-based rendering},
+	year = {2024},
+	issue_date = {Nov 2024},
+	publisher = {Springer-Verlag},
+	address = {Berlin, Heidelberg},
+	volume = {40},
+	number = {11},
+	issn = {0178-2789},
+	url = {https://doi.org/10.1007/s00371-023-03231-z},
+	doi = {10.1007/s00371-023-03231-z},
+	abstract = {This paper proposes a new method to improve cache placement for various rendering algorithms using caching techniques. The proposed method comprises two stages. The first stage computes an initial cache distribution based on shading points’ geometric proximity. We present a view-guided method to cluster shading points based on their world-space positions and surface normals, while considering the camera view to avoid producing small clusters in the final image. The proposed method is more robust and easier to control than previous shading point clustering methods. After computing the shading functions at the initial cache locations, the second stage of our method utilizes the results to allocate additional caches to regions with shading discontinuities. To achieve this, a discontinuity map is created to identify these regions and used to insert new caches based on importance sampling. We integrate the proposed method into several cache-based algorithms, including irradiance caching, importance caching, and ambient occlusion. Extensive experiments show that our method outperforms other cache distributions, producing better results both numerically and visually.},
+	journal = {Vis. Comput.},
+	month = jan,
+	pages = {8173–8187},
+	numpages = {15},
+	keywords = {Ray tracing, Importance caching, Irradiance caching, Ambient occlusion.},
+	preview = {wu2024cacheplacement.jpg}
+}
+
+@inproceedings{conty2024resampledlighttree,
+author = {Conty, Alejandro and Lecocq, Pascal and Hellmuth, Chris},
+title = {A Resampled Tree for Many Lights Rendering},
+year = {2024},
+isbn = {9798400705151},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3641233.3664352},
+doi = {10.1145/3641233.3664352},
+abstract = {We propose a new hybrid method for efficiently sampling many lights on a scene that combines a simplified spatial tree with a resampling stage. Building on previous methods that work with a split or cut of the light tree, we introduce the idea of probabilistic splitting to eliminate noise boundaries. This yields a subset of lights that is then reduced to a smaller and bounded set for full light/BSDF evaluation and resampling. Our main contribution is the stochastic splitting formulation combined with a reservoir set technique which limits samples to an arbitrary number to avoid variable size collections.},
+booktitle = {ACM SIGGRAPH 2024 Talks},
+articleno = {35},
+numpages = {2},
+keywords = {: illumination, many lights, ray tracing},
+location = {Denver, CO, USA},
+series = {SIGGRAPH '24},
+preview = {conty2024resampledlighttree.jpg}
+}
+
+@book{ReGIRBlogPostEnd,
+	author = {-------------------------------------------------------------------------------- REGIR BLOG POSTS REFERENCES ENDS -------------------------------------------------------------------------------}
+}

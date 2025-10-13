@@ -1,0 +1,30 @@
+var dataReSTIRDITemporal = {
+    "imageBoxes": [    
+        {
+            "title": "ReSTIR DI at 1SPP but after N frames of temporal resampling",
+            "elements": [
+				{
+                    "title": "Bistro random lights",
+                    "elements": [
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/restir-di-temporal/1.png",
+                            "title": "N = 1"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/restir-di-temporal/4.png",
+                            "title": "N = 4"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/restir-di-temporal/16.png",
+                            "title": "N = 16"
+                        },
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/restir-di-temporal/64.png",
+                            "title": "N = 64"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

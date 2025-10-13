@@ -1,0 +1,141 @@
+var dataLightDistribsQuality = {
+    "imageBoxes": [
+        {
+            "title": "Light distributions samples quality",
+            "elements": [
+				{
+                    "title": "The white room",
+                    "elements": [
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s1-twr.png",
+                            "title": "S=1"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s2-twr.png",
+                            "title": "S=2"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s4-twr.png",
+                            "title": "S=4"
+                        },
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/power-twr.png",
+                            "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/ats-twr.png",
+                            "title": "Light tree ATS"
+                        }
+                    ]
+                },
+				
+				
+				{
+                    "title": "Bistro",
+                    "elements": [
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s1-bistro.png",
+                            "title": "S=1"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s2-bistro.png",
+                            "title": "S=2"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s4-bistro.png",
+                            "title": "S=4"
+                        },
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/power-bistro.png",
+                            "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/ats-bistro.png",
+                            "title": "Light tree ATS"
+                        }
+                    ]
+                },
+				
+				
+				{
+                    "title": "Bistro random lights",
+                    "elements": [
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s1-bistro-rl.png",
+                            "title": "S=1"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s2-bistro-rl.png",
+                            "title": "S=2"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s4-bistro-rl.png",
+                            "title": "S=4"
+                        },
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/power-bistro-rl.png",
+                            "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/ats-bistro-rl.png",
+                            "title": "Light tree ATS"
+                        }
+                    ]
+                },
+				
+				
+				{
+                    "title": "BZD measure seven",
+                    "elements": [
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s1-bzd.png",
+                            "title": "S=1"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s2-bzd.png",
+                            "title": "S=2"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s4-bzd.png",
+                            "title": "S=4"
+                        },
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/power-bzd.png",
+                            "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/ats-bzd.png",
+                            "title": "Light tree ATS"
+                        }
+                    ]
+                },
+				
+				{
+                    "title": "Programmer art redux",
+                    "elements": [
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s1-progart.png",
+                            "title": "S=1"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s2-progart.png",
+                            "title": "S=2"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/s4-progart.png",
+                            "title": "S=4"
+                        },
+                        {
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/power-progart.png",
+                            "title": "Power sampling"
+                        },
+						{
+                            "image": "/assets/blogs-assets/ReGIR-Many-Lights/ImageBox/imgs/regir-light-distribs-quality/ats-progart.png",
+                            "title": "Light tree ATS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -195,9 +195,3 @@ td.stats {
 .image-container table {
     margin-bottom: 50px;
 }
-
-#ImageBoxContent {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}

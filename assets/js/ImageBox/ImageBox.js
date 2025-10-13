@@ -163,7 +163,6 @@ window.wheelzoom = (function ()
         }
 
         function reset() {
-			console.log("resetting");
             img.bgWidth = defineWithWidthRatio(img);
             img.bgHeight = defineWithHeightRatio(img);
             img.bgPosX = img.bgPosY = 0;
@@ -218,8 +217,6 @@ window.wheelzoom = (function ()
 
             // Prevent zooming out beyond the starting size
 			var imageSize = getImageSizeRelativeToWindowFromWidthHeight(globalSettings.width, globalSettings.height);
-			console.log("image size: " + imageSize[0] + ", " + imageSize[1]);
-			console.log("bgWidth/height size: " + img.bgWidth + ", " + img.bgHeight);
             if (img.bgWidth <= imageSize[0] || img.bgHeight <= imageSize[1]) {
                 reset();
             } else {
@@ -255,8 +252,6 @@ window.wheelzoom = (function ()
 
             img.imWidth = imageWidthHeight[0];
             img.imHeight = imageWidthHeight[1];
-
- 			// console.log("imWidth X imHeight: " + img.imWidth+ " X " + img.imHeight);
 
             img.bgWidth = img.imWidth;
             img.bgHeight = img.imHeight;
@@ -331,8 +326,6 @@ var ImageBox = function (parent, config, width, height) {
 	globalSettings.width = getImageSizeRelativeToWindowFromWidthHeight(width, height)[0];
 	globalSettings.height = getImageSizeRelativeToWindowFromWidthHeight(width, height)[1];
 	imageLargerThanLong = (globalSettings.width / globalSettings.height) > 1.25;
-	
-	console.log("width, height: " + globalSettings.width + ", " + globalSettings.height);
 
     var box = document.createElement('div');
 	box.style.width = globalSettings.width + "px";
